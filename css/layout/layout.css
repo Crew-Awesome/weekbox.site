@@ -2,7 +2,7 @@
 
 .layout-container {
     width: min(900px, calc(100% - 32px));
-    margin: 20px auto;
+    margin: clamp(12px, 3vw, 24px) auto;
     background-color: #202020;
     border: 3px double #0099ff;
     box-shadow: 0 0 0 1px rgba(0, 153, 255, 0.08), 0 10px 30px rgba(0, 0, 0, 0.28);
@@ -23,9 +23,14 @@
 }
 
 .layout-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     background-color: #1a1a1a;
     background-image: repeating-linear-gradient(45deg, #1a1a1a, #1a1a1a 2px, #222222 2px, #222222 4px); /** Scanline effect */
-    padding: 10px;
+    gap: 2px;
+    padding: 10px 8px;
     text-align: center;
     font-weight: bold;
     border-bottom: 2px solid #555555;
@@ -46,6 +51,12 @@
     text-shadow: 0 0 8px rgba(0, 153, 255, 0.55);
 }
 
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid #33ccff;
+    outline-offset: 3px;
+}
+
 .lang-switcher {
     appearance: none;
     background: none;
@@ -55,24 +66,22 @@
 }
 
 .layout-content-wrapper {
-    display: table;
+    display: grid;
+    grid-template-columns: minmax(220px, 250px) minmax(0, 1fr);
+    align-items: start;
+    gap: 16px;
     width: 100%;
+    padding: 16px;
     background-color: #2b2b2b;
 }
 
 .layout-sidebar {
-    display: table-cell;
-    width: 250px;
-    padding: 15px;
-    vertical-align: top;
-    border-right: 2px dashed #444444;
+    min-width: 0;
     background-color: #1f2226;
 }
 
 .layout-main {
-    display: table-cell;
-    padding: 15px;
-    vertical-align: top;
+    min-width: 0;
     background-image: radial-gradient(#333333 1px, transparent 1px);
     background-size: 20px 20px;
 }
@@ -95,7 +104,12 @@
     font-size: 10px;
 }
 
-@media (max-width: 700px) {
+.layout-sidebar .box:last-child,
+.layout-main .box:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 720px) {
     .layout-container {
         width: 100%;
         margin: 0;
@@ -106,16 +120,35 @@
     .layout-content-wrapper,
     .layout-sidebar,
     .layout-main {
-        display: block;
         width: 100%;
     }
 
+    .layout-content-wrapper {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+        padding: 16px;
+    }
+
+    .layout-main {
+        order: 1;
+    }
+
     .layout-sidebar {
-        border-right: 0;
-        border-bottom: 2px dashed #444444;
+        order: 2;
     }
 
     .layout-nav {
-        line-height: 2.2;
+        row-gap: 6px;
+        line-height: 1.6;
+    }
+}
+
+@media (max-width: 390px) {
+    .layout-content-wrapper {
+        padding: 12px;
+    }
+
+    .layout-nav__link {
+        padding-inline: 7px;
     }
 }

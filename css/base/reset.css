@@ -6,6 +6,11 @@ body {
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAFElEQVQIW2NkYGD4z8DAwMgAI0AMDA4YAQlZMgAAAABJRU5ErkJggg=='); /** Retro pixel checkerboard background */
 }
 
+::selection {
+    color: #000000;
+    background: #33ccff;
+}
+
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -13,4 +18,11 @@ body {
 ul {
     margin: 0;
     padding: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
 }

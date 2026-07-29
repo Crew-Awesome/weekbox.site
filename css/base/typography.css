@@ -15,12 +15,15 @@ a:hover {
     text-decoration: underline;
 }
 
+h1,
 h2 {
     color: #33ccff;
     font-size: 18px;
     margin-top: 0;
     border-bottom: 1px dotted #666666;
     padding-bottom: 5px;
+    line-height: 1.2;
+    text-wrap: balance;
 }
 
 h3 {
