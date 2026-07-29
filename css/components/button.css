@@ -10,6 +10,9 @@
     border-style: outset;
     margin-top: 10px;
     cursor: pointer;
+    transition-property: background-color, border-style, transform, box-shadow;
+    transition-duration: 140ms;
+    transition-timing-function: ease-out;
 }
 
 .btn:hover {
@@ -17,6 +20,11 @@
     color: #000000;
     text-decoration: none;
     border-style: inset;
+}
+
+.btn:active {
+    transform: scale(0.96);
+    box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.3);
 }
 
 .btn--small {

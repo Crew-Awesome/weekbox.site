@@ -13,12 +13,16 @@
     border: 1px solid #333333;
     padding: 5px;
     box-sizing: border-box;
+    transition-property: border-color, transform, box-shadow;
+    transition-duration: 160ms;
+    transition-timing-function: ease-out;
 }
 
 .screenshot-item__img {
     max-width: 100%;
     height: auto;
-    border: 1px solid #444444;
+    outline: 1px solid rgba(255, 255, 255, 0.1);
+    outline-offset: 1px;
 }
 
 .screenshot-item__text {
@@ -29,4 +33,12 @@
 
 .screenshot-item:hover {
     border-color: #0099ff;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.28);
+}
+
+@media (max-width: 460px) {
+    .screenshot-item {
+        width: 100%;
+    }
 }
