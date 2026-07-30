@@ -22,7 +22,7 @@ export default function Home() {
       </nav>
       <div className="layout-content-wrapper">
         <aside className="layout-sidebar">
-          <Box title="About Weekbox"><div className="box__content--center"><img src={asset('icon.webp')} alt="Weekbox Icon" width="100" draggable="false" /><p>The ultimate Friday Night Funkin&apos; launcher!</p><a href="https://github.com/Crew-Awesome/Weekbox" className="btn">Download Now</a></div></Box>
+          <Box title="About Weekbox"><div className="box__content--center"><img src={asset('icon.webp')} alt="Weekbox Icon" width="100" draggable="false" /><p>The ultimate Friday Night Funkin&apos; launcher!</p><a href="https://fnfweekbox.vercel.app/downloads" className="btn">Download Now</a></div></Box>
           <Box title="Supported Engines"><div className="engines-list">{[['psych.png','Psych Engine'],['psychonline.png','Psych Online'],['vslice.png','V-Slice'],['codename.png','Codename Engine'],['pslice.png','P-Slice'],['exe.png','Executable Mods'],['fpsplus.png','FPS Plus']].map(([file,name]) => <img key={file} src={asset(`engines/${file}`)} alt={name} title={name} className="engines-list__img" draggable="false" />)}</div></Box>
           <Box title="Awesome Crew"><div className="team-list">{[['Britex-Owner.png','Britex','Owner'],['Malloy-Owner.png','Malloy','Owner'],['Nezumi-Dev.png','Nezumi','Developer']].map(([file,name,role]) => <div className="team-member" key={name}><img src={asset(`awesome-crew/${file}`)} alt={name} className="team-member__avatar" draggable="false" /><div className="team-member__info"><span className="team-member__name">{name}</span><span className="team-member__role">{role}</span></div></div>)}</div></Box>
         </aside>
