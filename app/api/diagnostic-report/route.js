@@ -94,8 +94,8 @@ export async function POST(request) {
           color: 0xf6c945,
           description: `**Stack trace**\n\`\`\`\n${stackTrace.replaceAll("```", "''' ")}\n\`\`\``,
           fields: [
-            { name: "App version", value: `\`${escapeMarkdown(appVersion)}\``, inline: true },
-            { name: "OS / architecture", value: `\`${escapeMarkdown(operatingSystem)} / ${escapeMarkdown(architecture)}\``, inline: true },
+            { name: "App version", value: `\`${appVersion.replaceAll("`", "'")}\``, inline: true },
+            { name: "OS / architecture", value: `\`${operatingSystem.replaceAll("`", "'")} / ${architecture.replaceAll("`", "'")}\``, inline: true },
             { name: "Action", value: actionValue },
           ],
         },

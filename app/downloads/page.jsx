@@ -8,6 +8,10 @@ export const metadata = {
   description: 'Download the latest version of Weekbox.',
 };
 
+// Releases must appear as soon as the page is opened, not after a timed ISR
+// refresh. The GitHub response is intentionally fetched fresh per request.
+export const dynamic = 'force-dynamic';
+
 const RELEASES_URL = 'https://api.github.com/repos/Crew-Awesome/Weekbox/releases/latest';
 
 function formatDate(value) {
@@ -18,7 +22,7 @@ async function getLatestRelease() {
   try {
     const response = await fetch(RELEASES_URL, {
       headers: { Accept: 'application/vnd.github+json' },
-      next: { revalidate: 3600 },
+      cache: 'no-store',
     });
 
     if (!response.ok) return null;
