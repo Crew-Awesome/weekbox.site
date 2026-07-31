@@ -3,6 +3,7 @@ export const runtime = "nodejs";
 const MAX_STACK_TRACE_LENGTH = 3_800;
 const MAX_REQUESTS_PER_WINDOW = 10;
 const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1_000;
+const LATEST_RELEASE_URL = "https://api.github.com/repos/Crew-Awesome/Weekbox/releases/latest";
 const requestsByIp = new Map();
 
 function text(value, maximumLength) {
@@ -28,6 +29,25 @@ function getAction(value) {
 
 function escapeMarkdown(value) {
   return value.replace(/[\\`*_{}\[\]()<>#+\-.!|]/g, "\\$&");
+}
+
+function normalizeVersion(value) {
+  return value.trim().replace(/^v/i, "");
+}
+
+async function getLatestVersion() {
+  try {
+    const response = await fetch(LATEST_RELEASE_URL, {
+      headers: { Accept: "application/vnd.github+json" },
+      next: { revalidate: 300 },
+    });
+    if (!response.ok) return "";
+
+    const release = await response.json();
+    return typeof release.tag_name === "string" ? normalizeVersion(release.tag_name) : "";
+  } catch {
+    return "";
+  }
 }
 
 function canSubmit(request) {
@@ -73,6 +93,19 @@ export async function POST(request) {
   const action = getAction(body.action);
   if (!appVersion || !operatingSystem || !architecture || !stackTrace || !action.label) {
     return Response.json({ error: "Invalid diagnostic report" }, { status: 400, headers: corsHeaders() });
+  }
+
+  const latestVersion = await getLatestVersion();
+  if (!latestVersion) {
+    console.error("Unable to determine the latest WeekBox release");
+    return Response.json({ error: "Diagnostic reporting is temporarily unavailable" }, { status: 503, headers: corsHeaders() });
+  }
+
+  if (normalizeVersion(appVersion) !== latestVersion) {
+    return Response.json(
+      { error: "Diagnostic reports are accepted only from the latest version" },
+      { status: 409, headers: corsHeaders() },
+    );
   }
 
   const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
