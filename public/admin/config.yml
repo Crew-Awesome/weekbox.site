@@ -1,0 +1,67 @@
+backend:
+  name: github
+  repo: Crew-Awesome/weekbox.site
+  branch: main
+  base_url: https://fnfweekbox.vercel.app/api/decap
+  auth_endpoint: auth
+  use_graphql: true
+  squash_merges: true
+
+publish_mode: editorial_workflow
+media_folder: public/assets/images/news
+public_folder: /assets/images/news
+
+collections:
+  - name: news
+    label: News
+    label_singular: Post
+    folder: content/news/posts
+    create: true
+    extension: json
+    format: json
+    identifier_field: title
+    slug: "{{slug}}"
+    summary: "{{title}} - {{publishedAt}}"
+    fields:
+      - label: Title
+        name: title
+        widget: string
+        required: true
+      - label: URL slug
+        name: slug
+        widget: string
+        required: true
+        hint: Lowercase words separated by hyphens.
+      - label: Excerpt
+        name: excerpt
+        widget: text
+        required: true
+      - label: Publish date
+        name: publishedAt
+        widget: datetime
+        required: true
+      - label: Updated date
+        name: updatedAt
+        widget: datetime
+        required: false
+      - label: Cover image
+        name: coverUrl
+        widget: image
+        default: /assets/images/banner.webp
+        required: false
+      - label: Tags
+        name: tags
+        widget: list
+        required: false
+        field:
+          label: Tag
+          name: tag
+          widget: string
+      - label: Featured
+        name: featured
+        widget: boolean
+        default: false
+      - label: Body
+        name: body
+        widget: markdown
+        required: true
