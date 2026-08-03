@@ -17,18 +17,26 @@ function cookieValue(request) {
 
 function oauthResult(status, content) {
   const message = `authorization:github:${status}:${JSON.stringify(content)}`;
-  const safeMessage = JSON.stringify(message);
+  const safeMessage = JSON.stringify(message).replace(/</g, "\\u003c");
   return new Response(
-    `<!doctype html><html><body><script>
-      const payload = ${safeMessage};
-      const receiveMessage = (event) => {
-        if (event.source !== window.opener) return;
-        window.opener.postMessage(payload, event.origin);
-        window.removeEventListener("message", receiveMessage);
-        window.close();
-      };
-      window.addEventListener("message", receiveMessage);
-      window.opener?.postMessage("authorizing:github", "*");
+    `<!doctype html><html><body><p>Finishing GitHub sign-in…</p><script>
+      (() => {
+        const payload = ${safeMessage};
+        const opener = window.opener;
+        if (!opener) {
+          document.body.innerHTML = "<p>GitHub sign-in finished. Close this tab and return to the CMS.</p>";
+          return;
+        }
+        const origin = window.location.origin;
+        const receiveMessage = (event) => {
+          if (event.source !== opener || event.origin !== origin || event.data !== "authorizing:github") return;
+          window.removeEventListener("message", receiveMessage);
+          opener.postMessage(payload, origin);
+          window.close();
+        };
+        window.addEventListener("message", receiveMessage);
+        opener.postMessage("authorizing:github", origin);
+      })();
     </script></body></html>`,
     {
       headers: {

@@ -2,8 +2,8 @@ backend:
   name: github
   repo: Crew-Awesome/weekbox.site
   branch: main
-  base_url: https://fnfweekbox.vercel.app/api/decap
-  auth_endpoint: auth
+  base_url: https://fnfweekbox.vercel.app
+  auth_endpoint: api/decap/auth
   use_graphql: true
   squash_merges: true
 
@@ -32,6 +32,9 @@ collections:
         widget: string
         required: true
         hint: Lowercase words separated by hyphens.
+        pattern:
+          - '^[a-z0-9]+(?:-[a-z0-9]+)*$'
+          - Use lowercase letters, numbers, and hyphens only.
       - label: Excerpt
         name: excerpt
         widget: text
