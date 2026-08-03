@@ -1,10 +1,10 @@
 import { getNewsPost, toPublicPost } from "../../../../lib/news";
 
-export const revalidate = 300;
+export const revalidate = 0;
 
 const headers = {
   "Access-Control-Allow-Origin": "*",
-  "Cache-Control": "public, s-maxage=300, stale-while-revalidate=86400",
+  "Cache-Control": "no-store",
 };
 
 export async function GET(_request, { params }) {
