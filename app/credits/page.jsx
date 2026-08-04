@@ -104,7 +104,7 @@ export default function CreditsPage() {
                     <h2 className="credits-group__title" id={`credits-${group.id}`}>
                       {group.title}
                     </h2>
-                    <div className="credits-people">
+                    <div className={`credits-people${group.members.length === 1 ? " credits-people--single" : ""}`}>
                       {group.members.map((member) => (
                         <Person key={member.name} {...member} />
                       ))}

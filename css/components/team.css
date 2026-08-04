@@ -1,8 +1,12 @@
 /** Team Component */
-.team-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.team-carousel {
+    position: relative;
+}
+
+.team-carousel__members {
+    display: grid;
+    gap: 8px;
+    animation: team-members-in 320ms ease-out both;
 }
 
 .team-member {
@@ -10,29 +14,94 @@
     align-items: center;
     gap: 10px;
     background-color: #1a1a1a;
-    border: 1px dashed #0099ff;
+    border: 1px solid #174d6e;
     padding: 5px;
+    color: inherit;
+    text-decoration: none;
+    transition: transform 140ms ease-out, border-color 140ms ease-out, background-color 140ms ease-out;
+}
+
+.team-member--featured {
+    min-height: 76px;
+}
+
+.team-member--featured:hover {
+    border-color: #33ccff;
+    background: #202a31;
+    text-decoration: none;
+    transform: translateY(-2px);
 }
 
 .team-member__avatar {
-    width: 40px;
-    height: 40px;
-    border: 1px solid #33ccff;
-    image-rendering: pixelated; /** Maintains a crisp 2000s look on low-res avatars */
+    width: 56px;
+    height: 56px;
+    flex: 0 0 56px;
+    object-fit: cover;
+    border-radius: 6px;
+    outline: 1px solid oklch(1 0 0 / 0.1);
+    outline-offset: 2px;
 }
 
 .team-member__info {
     display: flex;
+    min-width: 0;
     flex-direction: column;
+    gap: 2px;
 }
 
 .team-member__name {
+    overflow: hidden;
+    color: #ffffff;
     font-weight: bold;
-    color: #33ccff;
     font-size: 11px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .team-member__role {
     font-size: 10px;
-    color: #999999;
+    color: #8bb4c4;
+    line-height: 1.35;
+}
+
+.team-carousel__dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 9px;
+}
+
+.team-carousel__dot {
+    width: 7px;
+    height: 7px;
+    padding: 0;
+    border: 1px solid #6f98a6;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    transition: transform 140ms ease-out, background-color 140ms ease-out, border-color 140ms ease-out;
+}
+
+.team-carousel__dot:hover,
+.team-carousel__dot:focus-visible,
+.team-carousel__dot.is-active {
+    border-color: #33ccff;
+    background: #33ccff;
+    outline: none;
+    transform: scale(1.2);
+}
+
+@keyframes team-members-in {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .team-member,
+    .team-member--featured,
+    .team-carousel__members,
+    .team-carousel__dot {
+        animation: none;
+        transition: none;
+    }
 }

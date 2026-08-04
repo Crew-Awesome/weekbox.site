@@ -12,19 +12,21 @@ function Box({ title, children }) {
 
 export default function Home() {
   const [language, setLanguage] = useState('ENG');
-  const [crewIndex, setCrewIndex] = useState(0);
+  const [crewPage, setCrewPage] = useState(0);
   const [crewPaused, setCrewPaused] = useState(false);
   const isEnglish = language === 'ENG';
   const toggleLanguage = () => setLanguage(isEnglish ? 'ESP' : 'ENG');
-  const currentCrewMember = crewMembers[crewIndex];
+  const crewPageSize = 3;
+  const crewPageCount = Math.ceil(crewMembers.length / crewPageSize);
+  const visibleCrewMembers = crewMembers.slice(crewPage * crewPageSize, (crewPage + 1) * crewPageSize);
 
   useEffect(() => {
     if (crewPaused) return undefined;
     const timer = window.setInterval(() => {
-      setCrewIndex((index) => (index + 1) % crewMembers.length);
+      setCrewPage((page) => (page + 1) % crewPageCount);
     }, 4000);
     return () => window.clearInterval(timer);
-  }, [crewPaused]);
+  }, [crewPageCount, crewPaused]);
 
   return (
     <div className="layout-container">
@@ -36,7 +38,7 @@ export default function Home() {
         <aside className="layout-sidebar">
           <Box title="About Weekbox"><div className="box__content--center"><img src={asset('icon.webp')} alt="Weekbox Icon" width="100" draggable="false" /><p>The ultimate Friday Night Funkin&apos; launcher!</p><a href="https://fnfweekbox.vercel.app/downloads" className="btn">Download Now</a></div></Box>
           <Box title="Supported Engines"><div className="engines-list">{[['psych.png','Psych Engine'],['psychonline.png','Psych Online'],['vslice.png','V-Slice'],['codename.png','Codename Engine'],['pslice.png','P-Slice'],['exe.png','Executable Mods'],['fpsplus.png','FPS Plus']].map(([file,name]) => <img key={file} src={asset(`engines/${file}`)} alt={name} title={name} className="engines-list__img" draggable="false" />)}</div></Box>
-          <Box title="WeekBox Crew"><div className="team-carousel" onMouseEnter={() => setCrewPaused(true)} onMouseLeave={() => setCrewPaused(false)} onFocus={() => setCrewPaused(true)} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setCrewPaused(false); }} aria-live="polite"><a className="team-member team-member--featured" href={currentCrewMember.href || '/credits'} target={currentCrewMember.href ? '_blank' : undefined} rel={currentCrewMember.href ? 'noreferrer' : undefined} key={currentCrewMember.name}><img src={asset(`awesome-crew/${currentCrewMember.image}`)} alt={currentCrewMember.name} className="team-member__avatar" draggable="false" /><span className="team-member__info"><span className="team-member__name">{currentCrewMember.name}</span><span className="team-member__role">{currentCrewMember.role}</span></span></a><span className="team-carousel__count" aria-hidden="true">{crewIndex + 1} / {crewMembers.length}</span></div></Box>
+          <Box title="WeekBox Crew"><div className="team-carousel" onMouseEnter={() => setCrewPaused(true)} onMouseLeave={() => setCrewPaused(false)} onFocus={() => setCrewPaused(true)} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setCrewPaused(false); }} aria-live="polite"><div className="team-carousel__members" key={crewPage}>{visibleCrewMembers.map((member) => <a className="team-member team-member--featured" href={member.href || '/credits'} target={member.href ? '_blank' : undefined} rel={member.href ? 'noreferrer' : undefined} key={member.name}><img src={asset(`awesome-crew/${member.image}`)} alt={member.name} className="team-member__avatar" draggable="false" /><span className="team-member__info"><span className="team-member__name">{member.name}</span><span className="team-member__role">{member.role}</span></span></a>)}</div><div className="team-carousel__dots" role="tablist" aria-label="WeekBox Crew pages">{Array.from({ length: crewPageCount }, (_, page) => <button type="button" className={`team-carousel__dot${page === crewPage ? ' is-active' : ''}`} aria-label={`Show crew page ${page + 1}`} aria-selected={page === crewPage} role="tab" onClick={() => setCrewPage(page)} />)}</div></div></Box>
         </aside>
         <main className="layout-main">
           <Box title={isEnglish ? 'Welcome to Weekbox' : 'Bienvenido a Weekbox'}><h1>{isEnglish ? 'Your all-in-one FNF Hub' : 'Tu centro FNF todo en uno'}</h1><p>{isEnglish ? 'Weekbox is a Friday Night Funkin\' launcher designed to give you complete control over your mods and engines. It\'s built for speed, efficiency, and to make your GameBanana modding experience as seamless as possible!' : 'Weekbox es un lanzador de Friday Night Funkin\' diseñado para darte control completo de tus mods y motores.'}</p><h2>{isEnglish ? 'Key Features:' : 'Características principales:'}</h2><ul><li><strong>{isEnglish ? 'Manage your mods:' : 'Administra tus mods:'}</strong> {isEnglish ? 'Keep all your FNF mods organized in one place.' : 'Mantén tus mods de FNF organizados en un solo lugar.'}</li><li><strong>{isEnglish ? 'Manage your engines:' : 'Administra tus motores:'}</strong> {isEnglish ? 'Switch between different FNF engines with ease.' : 'Cambia entre diferentes motores de FNF fácilmente.'}</li><li><strong>GameBanana Integration:</strong> {isEnglish ? 'Download mods from GameBanana directly and incredibly fast!' : '¡Descarga mods de GameBanana directamente y muy rápido!'}</li><li><strong>{isEnglish ? 'Engine Version Switcher:' : 'Selector de versión del motor:'}</strong> {isEnglish ? 'Switch between engine versions supported by GameBanana instantly.' : 'Cambia al instante entre versiones compatibles con GameBanana.'}</li></ul></Box>
