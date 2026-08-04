@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { crewGroups } from "../../lib/crew";
 
 export const metadata = {
   title: "Credits | Weekbox",
@@ -98,86 +99,18 @@ export default function CreditsPage() {
           <div className="credits-grid">
             <Box title="WeekBox Crew">
               <div className="credits-groups">
-                <section className="credits-group" aria-labelledby="credits-core-team">
-                  <h2 className="credits-group__title" id="credits-core-team">
-                    Core team
-                  </h2>
-                  <div className="credits-people">
-                    <Person
-                      image="malloy.png"
-                      name="Malloy"
-                      role="Main Owner and Coder"
-                      href="https://malloy.vercel.app/"
-                    />
-                    <Person
-                      image="britex.png"
-                      name="Britex"
-                      role="Owner"
-                      href="https://x.com/ImBritex"
-                    />
-                  </div>
-                </section>
-
-                <section className="credits-group" aria-labelledby="credits-creative">
-                  <h2 className="credits-group__title" id="credits-creative">
-                    Creative
-                  </h2>
-                  <div className="credits-people">
-                    <Person image="criscris.png" name="Cricris" role="UI Artist" />
-                    <Person
-                      image="dvyn.png"
-                      name="Dvyn"
-                      role="Banner Artist"
-                      href="https://www.youtube.com/channel/UCc6-8LAueIeFJwVtmOn2Oug"
-                    />
-                  </div>
-                </section>
-
-                <section className="credits-group" aria-labelledby="credits-translation">
-                  <h2 className="credits-group__title" id="credits-translation">
-                    Translation
-                  </h2>
-                  <div className="credits-people">
-                    <Person
-                      image="raupy.png"
-                      name="Raupy1.0"
-                      role="German Translator"
-                      href="https://github.com/Raupy10"
-                    />
-                    <Person
-                      image="leonardo.png"
-                      name="leonardo wegner"
-                      role="Portuguese Translator"
-                      href="https://www.youtube.com/channel/UC2R-vsUD9JqPxfCajM2scHQ"
-                    />
-                  </div>
-                </section>
-
-                <section className="credits-group" aria-labelledby="credits-testing">
-                  <h2 className="credits-group__title" id="credits-testing">
-                    Testing
-                  </h2>
-                  <div className="credits-people">
-                    <Person
-                      image="nezumieepy.png"
-                      name="Nezumieepy"
-                      role="Linux Tester"
-                      href="https://nezumieepy.straw.page/"
-                    />
-                    <Person
-                      image="luminercy.png"
-                      name="Luminercy"
-                      role="Beta Tester"
-                      href="https://www.youtube.com/channel/UCXY-FHb2aGfI2Pd5rtnWvhw"
-                    />
-                    <Person
-                      image="saturdaynightmodding21.png"
-                      name="SaturdayNightModding21"
-                      role="Beta Tester"
-                    />
-                    <Person image="noah.png" name="noahwrshkhy" role="Beta Tester" />
-                  </div>
-                </section>
+                {crewGroups.map((group) => (
+                  <section className="credits-group" aria-labelledby={`credits-${group.id}`} key={group.id}>
+                    <h2 className="credits-group__title" id={`credits-${group.id}`}>
+                      {group.title}
+                    </h2>
+                    <div className="credits-people">
+                      {group.members.map((member) => (
+                        <Person key={member.name} {...member} />
+                      ))}
+                    </div>
+                  </section>
+                ))}
               </div>
             </Box>
           </div>
