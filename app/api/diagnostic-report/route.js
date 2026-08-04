@@ -3,7 +3,6 @@ export const runtime = "nodejs";
 const MAX_STACK_TRACE_LENGTH = 3_800;
 const MAX_REQUESTS_PER_WINDOW = 10;
 const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1_000;
-const LATEST_RELEASE_URL = "https://api.github.com/repos/Crew-Awesome/Weekbox/releases/latest";
 const requestsByIp = new Map();
 
 function text(value, maximumLength) {
@@ -31,23 +30,9 @@ function escapeMarkdown(value) {
   return value.replace(/[\\`*_{}\[\]()<>#+\-.!|]/g, "\\$&");
 }
 
-function normalizeVersion(value) {
-  return value.trim().replace(/^v/i, "");
-}
-
-async function getLatestVersion() {
-  try {
-    const response = await fetch(LATEST_RELEASE_URL, {
-      headers: { Accept: "application/vnd.github+json" },
-      next: { revalidate: 300 },
-    });
-    if (!response.ok) return "";
-
-    const release = await response.json();
-    return typeof release.tag_name === "string" ? normalizeVersion(release.tag_name) : "";
-  } catch {
-    return "";
-  }
+function codeValue(value, maximumLength = 1_024) {
+  const normalized = text(value, maximumLength).replaceAll("`", "'");
+  return normalized ? `\`${normalized}\`` : "Unknown";
 }
 
 function canSubmit(request) {
@@ -91,21 +76,16 @@ export async function POST(request) {
   const architecture = text(body.architecture, 100);
   const stackTrace = text(body.stackTrace, MAX_STACK_TRACE_LENGTH);
   const action = getAction(body.action);
+  const item = text(body.item, 240);
+  const version = text(body.version, 80);
+  const storagePath = text(body.storagePath, 1_000);
+  const issue = text(body.issue, 240);
+  const title = text(body.title, 240);
+  const summary = text(body.summary, 1_024);
+  const errorMessage = text(body.errorMessage, 1_024);
+  const reportedAt = text(body.reportedAt, 80);
   if (!appVersion || !operatingSystem || !architecture || !stackTrace || !action.label) {
     return Response.json({ error: "Invalid diagnostic report" }, { status: 400, headers: corsHeaders() });
-  }
-
-  const latestVersion = await getLatestVersion();
-  if (!latestVersion) {
-    console.error("Unable to determine the latest WeekBox release");
-    return Response.json({ error: "Diagnostic reporting is temporarily unavailable" }, { status: 503, headers: corsHeaders() });
-  }
-
-  if (normalizeVersion(appVersion) !== latestVersion) {
-    return Response.json(
-      { error: "Diagnostic reports are accepted only from the latest version" },
-      { status: 409, headers: corsHeaders() },
-    );
   }
 
   const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
@@ -117,6 +97,27 @@ export async function POST(request) {
   const actionValue = action.url
     ? `[${escapeMarkdown(action.label)}](${action.url})`
     : escapeMarkdown(action.label);
+  const fields = [
+    { name: "App version", value: codeValue(appVersion), inline: true },
+    {
+      name: "OS / architecture",
+      value: `${codeValue(operatingSystem)} / ${codeValue(architecture)}`,
+      inline: true,
+    },
+    { name: "Action", value: actionValue },
+  ];
+  if (item) fields.push({ name: "Item", value: codeValue(item) });
+  if (version) fields.push({ name: "Version", value: codeValue(version) });
+  if (storagePath)
+    fields.push({ name: "Storage path", value: codeValue(storagePath) });
+  if (title) fields.push({ name: "Error title", value: codeValue(title) });
+  if (issue) fields.push({ name: "Issue", value: codeValue(issue) });
+  if (summary)
+    fields.push({ name: "What happened", value: codeValue(summary) });
+  if (errorMessage)
+    fields.push({ name: "Error", value: codeValue(errorMessage) });
+  if (reportedAt)
+    fields.push({ name: "Reported at", value: codeValue(reportedAt) });
   const discordResponse = await fetch(webhookUrl, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -126,11 +127,7 @@ export async function POST(request) {
           title: "WeekBox diagnostic report",
           color: 0xf6c945,
           description: `**Stack trace**\n\`\`\`\n${stackTrace.replaceAll("```", "''' ")}\n\`\`\``,
-          fields: [
-            { name: "App version", value: `\`${appVersion.replaceAll("`", "'")}\``, inline: true },
-            { name: "OS / architecture", value: `\`${operatingSystem.replaceAll("`", "'")} / ${architecture.replaceAll("`", "'")}\``, inline: true },
-            { name: "Action", value: actionValue },
-          ],
+          fields,
         },
       ],
     }),
