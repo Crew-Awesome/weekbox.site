@@ -1,8 +1,7 @@
 import { timingSafeEqual } from 'node:crypto';
 import { revalidatePath, revalidateTag } from 'next/cache';
 import { NextResponse } from 'next/server';
-
-const RELEASE_CACHE_TAG = 'weekbox-release';
+import { RELEASE_CACHE_TAG } from '../../../lib/weekbox-release';
 
 function hasValidSecret(request) {
   const expected = process.env.RELEASE_REVALIDATE_SECRET;

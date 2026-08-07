@@ -1,3 +1,5 @@
+import { getLatestRelease } from "../../../lib/weekbox-release";
+
 export const runtime = "nodejs";
 
 const MAX_STACK_TRACE_LENGTH = 3_800;
@@ -33,6 +35,15 @@ function escapeMarkdown(value) {
 function codeValue(value, maximumLength = 1_024) {
   const normalized = text(value, maximumLength).replaceAll("`", "'");
   return normalized ? `\`${normalized}\`` : "Unknown";
+}
+
+function normalizeVersion(value) {
+  return value.trim().replace(/^v/i, "");
+}
+
+async function getLatestVersion() {
+  const release = await getLatestRelease();
+  return typeof release?.tag_name === "string" ? normalizeVersion(release.tag_name) : "";
 }
 
 function canSubmit(request) {
@@ -86,6 +97,19 @@ export async function POST(request) {
   const reportedAt = text(body.reportedAt, 80);
   if (!appVersion || !operatingSystem || !architecture || !stackTrace || !action.label) {
     return Response.json({ error: "Invalid diagnostic report" }, { status: 400, headers: corsHeaders() });
+  }
+
+  const latestVersion = await getLatestVersion();
+  if (!latestVersion) {
+    console.error("Unable to determine the latest WeekBox release");
+    return Response.json({ error: "Diagnostic reporting is temporarily unavailable" }, { status: 503, headers: corsHeaders() });
+  }
+
+  if (normalizeVersion(appVersion) !== latestVersion) {
+    return Response.json(
+      { error: "Diagnostic reports are accepted only from the latest version" },
+      { status: 409, headers: corsHeaders() },
+    );
   }
 
   const webhookUrl = process.env.DISCORD_WEBHOOK_URL;

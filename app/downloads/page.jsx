@@ -2,33 +2,15 @@ import Link from 'next/link';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import DownloadSelector from './download-selector';
+import { getLatestRelease } from '../../lib/weekbox-release';
 
 export const metadata = {
   title: 'Downloads | Weekbox',
   description: 'Download the latest version of Weekbox.',
 };
 
-const RELEASES_URL = 'https://api.github.com/repos/Crew-Awesome/Weekbox/releases/latest';
-const RELEASE_CACHE_TAG = 'weekbox-release';
-
 function formatDate(value) {
   return new Intl.DateTimeFormat('en', { month: 'long', day: 'numeric', year: 'numeric' }).format(new Date(value));
-}
-
-async function getLatestRelease() {
-  try {
-    const response = await fetch(RELEASES_URL, {
-      headers: { Accept: 'application/vnd.github+json' },
-      // A signed GitHub Release workflow clears this cache immediately.
-      // The interval is only a fallback if that notification ever fails.
-      next: { revalidate: 86400, tags: [RELEASE_CACHE_TAG] },
-    });
-
-    if (!response.ok) return null;
-    return response.json();
-  } catch {
-    return null;
-  }
 }
 
 function Box({ title, children }) {
