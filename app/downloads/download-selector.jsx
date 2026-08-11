@@ -17,6 +17,26 @@ function getPlatform(name) {
   return 'other';
 }
 
+function getAssetPriority(name) {
+  const fileName = name.toLowerCase();
+  if (fileName.endsWith('-setup.exe')) return 0;
+  if (fileName.endsWith('.pkg') || fileName.endsWith('.deb')) return 1;
+  if (fileName.endsWith('.dmg') || fileName.endsWith('.appimage')) return 2;
+  if (fileName.endsWith('.zip')) return 3;
+  return 4;
+}
+
+function getAssetLabel(name) {
+  const fileName = name.toLowerCase();
+  if (fileName.endsWith('-setup.exe')) return 'Recommended installer';
+  if (fileName.endsWith('.pkg')) return 'macOS installer';
+  if (fileName.endsWith('.deb')) return 'Debian/Ubuntu installer';
+  if (fileName.endsWith('.dmg')) return 'macOS app';
+  if (fileName.endsWith('.appimage')) return 'Linux portable app';
+  if (fileName.endsWith('.zip')) return 'Portable archive';
+  return 'Additional file';
+}
+
 function formatFileSize(bytes) {
   if (!bytes) return 'Size unavailable';
   const units = ['B', 'KB', 'MB', 'GB'];
@@ -32,7 +52,7 @@ function defaultPlatform() {
 }
 
 export default function DownloadSelector({ assets }) {
-  const groupedAssets = useMemo(() => assets.reduce((groups, asset) => {
+  const groupedAssets = useMemo(() => assets.filter((asset) => !asset.name.toLowerCase().endsWith('resources.neu')).sort((a, b) => getAssetPriority(a.name) - getAssetPriority(b.name)).reduce((groups, asset) => {
     const platform = getPlatform(asset.name);
     (groups[platform] ||= []).push(asset);
     return groups;
@@ -49,7 +69,7 @@ export default function DownloadSelector({ assets }) {
 
   return <section className="platform-downloads" aria-label="Download files by platform">
     <div className="platform-picker">{availablePlatforms.map(({ id, label, Icon }) => <button key={id} type="button" className="platform-picker__button" aria-pressed={selectedPlatform === id} onClick={() => setSelectedPlatform(id)}><Icon /><span>{label}</span></button>)}</div>
-    <div className="download-list" aria-live="polite">{selectedAssets.map((asset) => <a key={asset.id} href={asset.browser_download_url} className="download-card"><span className="download-card__name">Download {asset.name}</span><span className="download-card__meta">{formatFileSize(asset.size)}</span></a>)}</div>
+    <div className="download-list" aria-live="polite">{selectedAssets.map((asset) => <a key={asset.id} href={asset.browser_download_url} className="download-card" aria-label={`Download ${asset.name}`}><span className="download-card__name">{getAssetLabel(asset.name)}</span><span className="download-card__meta">{asset.name} · {formatFileSize(asset.size)}</span></a>)}</div>
   </section>;
 }
 
