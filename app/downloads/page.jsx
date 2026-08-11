@@ -6,7 +6,7 @@ import { getLatestRelease } from '../../lib/weekbox-release';
 
 export const metadata = {
   title: 'Downloads | Weekbox',
-  description: 'Download the latest version of Weekbox.',
+  description: 'A Re-Imagined Original FNF Mod Launcher',
 };
 
 function formatDate(value) {
@@ -32,7 +32,7 @@ export default async function DownloadsPage() {
           {release ? <>
             <h1>{release.name || release.tag_name}</h1>
             <p className="release-meta">Released {formatDate(release.published_at)} · <a href={release.html_url} target="_blank" rel="noreferrer">View release on GitHub</a></p>
-            <p className="download-intro">Choose the file that matches your platform.</p>
+            <p className="download-intro">Choose the installer or portable build for your platform.</p>
             {assets.length > 0 ? <DownloadSelector assets={assets} /> : <div className="release-empty" role="status"><p>No release files are available yet.</p><a href={release.html_url} target="_blank" rel="noreferrer" className="btn">View release on GitHub</a></div>}
             {release.body && <div className="release-notes"><h2>Release notes</h2><div className="release-notes__body"><Markdown remarkPlugins={[remarkGfm]} components={{ a: ({ href, children }) => <a href={href} target="_blank" rel="noreferrer">{children}</a> }}>{release.body}</Markdown></div></div>}
           </> : <div className="release-empty" role="status"><h1>Downloads are temporarily unavailable</h1><p>Unable to load the latest release. Open the GitHub releases page and try again shortly.</p><a href="https://github.com/Crew-Awesome/Weekbox/releases" target="_blank" rel="noreferrer" className="btn">View releases on GitHub</a></div>}

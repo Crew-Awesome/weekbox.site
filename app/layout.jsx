@@ -2,7 +2,7 @@ import './globals.css';
 
 export const metadata = {
   title: 'Weekbox',
-  description: 'The ultimate Friday Night Funkin\' launcher.',
+  description: 'A Re-Imagined Original FNF Mod Launcher',
   icons: { icon: '/favicon.ico' },
 };
 
