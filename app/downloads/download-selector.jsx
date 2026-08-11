@@ -21,7 +21,7 @@ function getAssetPriority(name) {
   const fileName = name.toLowerCase();
   if (fileName.endsWith('-setup.exe')) return 0;
   if (fileName.endsWith('.pkg') || fileName.endsWith('.deb')) return 1;
-  if (fileName.endsWith('.dmg') || fileName.endsWith('.appimage')) return 2;
+  if (fileName.endsWith('.dmg') || fileName.endsWith('.appimage') || fileName.endsWith('.app.zip')) return 2;
   if (fileName.endsWith('.zip')) return 3;
   return 4;
 }
@@ -32,6 +32,7 @@ function getAssetLabel(name) {
   if (fileName.endsWith('.pkg')) return 'macOS installer';
   if (fileName.endsWith('.deb')) return 'Debian/Ubuntu installer';
   if (fileName.endsWith('.dmg')) return 'macOS app';
+  if (fileName.endsWith('.app.zip')) return 'macOS app bundle';
   if (fileName.endsWith('.appimage')) return 'Linux portable app';
   if (fileName.endsWith('.zip')) return 'Portable archive';
   return 'Additional file';
