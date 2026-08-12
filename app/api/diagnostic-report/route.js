@@ -3,6 +3,9 @@ import { getLatestRelease } from "../../../lib/weekbox-release";
 export const runtime = "nodejs";
 
 const MAX_STACK_TRACE_LENGTH = 3_800;
+const MAX_MIGRATION_FAILURES = 12;
+const DISCORD_STACK_TRACE_LENGTH = 1_200;
+const DISCORD_FIELD_VALUE_LENGTH = 640;
 const MAX_REQUESTS_PER_WINDOW = 10;
 const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1_000;
 const requestsByIp = new Map();
@@ -32,13 +35,93 @@ function escapeMarkdown(value) {
   return value.replace(/[\\`*_{}\[\]()<>#+\-.!|]/g, "\\$&");
 }
 
-function codeValue(value, maximumLength = 1_024) {
+function codeValue(value, maximumLength = DISCORD_FIELD_VALUE_LENGTH) {
   const normalized = text(value, maximumLength).replaceAll("`", "'");
   return normalized ? `\`${normalized}\`` : "Unknown";
 }
 
 function normalizeVersion(value) {
   return value.trim().replace(/^v/i, "");
+}
+
+function numberText(value) {
+  if (value === "" || value === null || value === undefined) return "";
+  const number = Number(value);
+  return Number.isFinite(number) ? String(number) : "";
+}
+
+function localeText(value) {
+  if (typeof value === "string") return text(value, 120);
+  if (!value || typeof value !== "object") return "";
+  return [value.locale, value.language, value.country]
+    .filter((part) => typeof part === "string" && part.trim())
+    .map((part) => text(part, 80))
+    .join(" / ");
+}
+
+function normalizeDiagnostics(value) {
+  const migration = value?.storageMigration;
+  if (!migration || typeof migration !== "object") return null;
+  const failedFiles = Array.isArray(migration.failedFiles)
+    ? migration.failedFiles.slice(0, MAX_MIGRATION_FAILURES).map((failure) => ({
+        path: text(failure?.path, 1_500),
+        reason: text(failure?.reason, 800),
+      }))
+    : [];
+  return {
+    sourcePath: text(migration.sourcePath, 1_500),
+    targetPath: text(migration.targetPath, 1_500),
+    stagePath: text(migration.stagePath, 1_500),
+    reportPath: text(migration.reportPath, 1_500),
+    failedFileCount: numberText(migration.failedFileCount),
+    totalFiles: numberText(migration.totalFiles),
+    copiedFiles: numberText(migration.copiedFiles),
+    failedFiles,
+  };
+}
+
+function getMigrationSummary(migration) {
+  if (!migration) return "";
+  const firstFailure = migration.failedFiles.find(
+    (failure) => failure.path || failure.reason,
+  );
+  return [
+    `${migration.failedFileCount || migration.failedFiles.length} failed`,
+    migration.copiedFiles && migration.totalFiles
+      ? `${migration.copiedFiles}/${migration.totalFiles} copied`
+      : null,
+    firstFailure?.path ? `first: ${firstFailure.path}` : null,
+  ]
+    .filter(Boolean)
+    .join("\n");
+}
+
+async function saveDiagnosticReport(report) {
+  const supabaseUrl = text(process.env.SUPABASE_URL, 500).replace(/\/+$/, "");
+  const supabaseKey = text(process.env.SUPABASE_SERVICE_ROLE_KEY, 2_000);
+  if (!supabaseUrl || !supabaseKey) return null;
+
+  try {
+    const response = await fetch(`${supabaseUrl}/rest/v1/diagnostic_reports`, {
+      method: "POST",
+      headers: {
+        apikey: supabaseKey,
+        Authorization: `Bearer ${supabaseKey}`,
+        "Content-Type": "application/json",
+        Prefer: "return=representation",
+      },
+      body: JSON.stringify(report),
+    });
+    if (!response.ok) {
+      console.error("Supabase diagnostic report insert failed", response.status);
+      return null;
+    }
+    const rows = await response.json().catch(() => []);
+    return Array.isArray(rows) && rows[0]?.id ? String(rows[0].id) : null;
+  } catch (error) {
+    console.error("Supabase diagnostic report insert failed", error?.message || error);
+    return null;
+  }
 }
 
 async function getLatestVersion() {
@@ -83,8 +166,12 @@ export async function POST(request) {
   }
 
   const appVersion = text(body.appVersion, 80);
+  const neutralinoVersion = text(body.neutralinoVersion, 80);
   const operatingSystem = text(body.operatingSystem, 100);
   const architecture = text(body.architecture, 100);
+  const locale = localeText(body.locale);
+  const disks = body.disks && typeof body.disks === "object" ? body.disks : null;
+  const network = body.network && typeof body.network === "object" ? body.network : null;
   const stackTrace = text(body.stackTrace, MAX_STACK_TRACE_LENGTH);
   const action = getAction(body.action);
   const item = text(body.item, 240);
@@ -94,6 +181,7 @@ export async function POST(request) {
   const title = text(body.title, 240);
   const summary = text(body.summary, 1_024);
   const errorMessage = text(body.errorMessage, 1_024);
+  const diagnostics = normalizeDiagnostics(body.diagnostics);
   const reportedAt = text(body.reportedAt, 80);
   if (!appVersion || !operatingSystem || !architecture || !stackTrace || !action.label) {
     return Response.json({ error: "Invalid diagnostic report" }, { status: 400, headers: corsHeaders() });
@@ -112,10 +200,35 @@ export async function POST(request) {
     );
   }
 
+  const reportId = await saveDiagnosticReport({
+    reported_at: reportedAt || new Date().toISOString(),
+    app_version: appVersion,
+    neutralino_version: neutralinoVersion || null,
+    operating_system: operatingSystem,
+    architecture,
+    locale: body.locale || null,
+    disks,
+    network,
+    action: action.label,
+    action_url: action.url || null,
+    item: item || null,
+    item_version: version || null,
+    storage_path: storagePath || null,
+    issue: issue || null,
+    title: title || null,
+    summary: summary || null,
+    error_message: errorMessage || null,
+    stack_trace: stackTrace,
+    diagnostics,
+  });
+
   const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
   if (!webhookUrl) {
     console.error("DISCORD_WEBHOOK_URL is not configured");
-    return Response.json({ error: "Diagnostic reporting is unavailable" }, { status: 503, headers: corsHeaders() });
+    return Response.json(
+      { accepted: Boolean(reportId), reportId },
+      { status: reportId ? 202 : 503, headers: corsHeaders() },
+    );
   }
 
   const actionValue = action.url
@@ -134,6 +247,22 @@ export async function POST(request) {
   if (version) fields.push({ name: "Version", value: codeValue(version) });
   if (storagePath)
     fields.push({ name: "Storage path", value: codeValue(storagePath) });
+  if (reportId)
+    fields.push({ name: "Full report ID", value: codeValue(reportId) });
+  const environment = [
+    neutralinoVersion && `Neutralino: ${neutralinoVersion}`,
+    locale && `Locale: ${locale}`,
+    disks &&
+      `Disks: ${numberText(disks.count) || "?"} (${numberText(disks.freeBytes) || "?"} free / ${numberText(disks.totalBytes) || "?"} total)`,
+    network &&
+      `Network: ${numberText(network.count) || "?"} interfaces (${numberText(network.ipv4) || "?"} IPv4 / ${numberText(network.ipv6) || "?"} IPv6)`,
+  ]
+    .filter(Boolean)
+    .join("\n");
+  if (environment) fields.push({ name: "Environment", value: codeValue(environment) });
+  const migrationSummary = getMigrationSummary(diagnostics?.storageMigration);
+  if (migrationSummary)
+    fields.push({ name: "Storage migration", value: codeValue(migrationSummary) });
   if (title) fields.push({ name: "Error title", value: codeValue(title) });
   if (issue) fields.push({ name: "Issue", value: codeValue(issue) });
   if (summary)
@@ -150,10 +279,11 @@ export async function POST(request) {
         {
           title: "WeekBox diagnostic report",
           color: 0xf6c945,
-          description: `**Stack trace**\n\`\`\`\n${stackTrace.replaceAll("```", "''' ")}\n\`\`\``,
+          description: `**Stack trace excerpt**\n\`\`\`\n${stackTrace.slice(0, DISCORD_STACK_TRACE_LENGTH).replaceAll("```", "''' ")}\n\`\`\``,
           fields,
         },
       ],
+      allowed_mentions: { parse: [] },
     }),
   });
 
@@ -162,5 +292,8 @@ export async function POST(request) {
     return Response.json({ error: "Diagnostic reporting failed" }, { status: 502, headers: corsHeaders() });
   }
 
-  return Response.json({ accepted: true }, { status: 202, headers: corsHeaders() });
+  return Response.json(
+    { accepted: true, reportId },
+    { status: 202, headers: corsHeaders() },
+  );
 }
