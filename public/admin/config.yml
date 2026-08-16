@@ -68,3 +68,20 @@ collections:
         name: body
         widget: markdown
         required: true
+
+  - name: featured
+    label: Featured Curation
+    files:
+      - file: content/featured/curation.json
+        label: Curation Rules
+        name: rules
+        fields:
+          - label: Blocked Mod IDs
+            name: blockedMods
+            widget: list
+            required: false
+            field:
+              label: Mod ID
+              name: id
+              widget: number
+              value_type: int
