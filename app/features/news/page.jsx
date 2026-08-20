@@ -31,11 +31,6 @@ export default async function NewsPage() {
   const [featured, ...rest] = posts;
 
   return <div className="site-page news-page">
-    <header className="page-heading">
-      <p className="page-heading__eyebrow">WeekBox / updates</p>
-      <h1>News</h1>
-      <p>Project updates, releases, and community news.</p>
-    </header>
     <section className="box news-panel">
       <div className="box__header">Latest news</div>
       <div className="box__content">

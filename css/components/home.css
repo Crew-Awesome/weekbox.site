@@ -16,18 +16,7 @@
     max-width: 680px;
 }
 
-.home-hero__icon {
-    width: 72px;
-    height: 72px;
-    margin-bottom: 24px;
-    border-radius: 18px;
-    outline: 1px solid oklch(1 0 0 / 0.1);
-    outline-offset: 3px;
-    box-shadow: 0 14px 28px rgb(0 0 0 / 0.32);
-}
-
-.home-eyebrow,
-.page-heading__eyebrow {
+.home-eyebrow {
     margin: 0 0 10px;
     color: var(--wb-primary);
     font-size: 11px;

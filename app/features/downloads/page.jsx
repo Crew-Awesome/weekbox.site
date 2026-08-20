@@ -18,11 +18,6 @@ export default async function DownloadsPage() {
 
   return (
     <div className="site-page downloads-page">
-      <header className="page-heading">
-        <p className="page-heading__eyebrow">WeekBox / downloads</p>
-        <h1>Downloads</h1>
-        <p>Choose the build that matches your platform.</p>
-      </header>
       <div className="downloads-main">
         <section className="box">
           <div className="box__header">Latest release</div>

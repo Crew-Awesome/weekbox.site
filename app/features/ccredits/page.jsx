@@ -35,11 +35,6 @@ function Person({ image, name, role, href }) {
 export default function CreditsPage() {
   return (
     <div className="site-page credits-page">
-      <header className="page-heading">
-        <p className="page-heading__eyebrow">WeekBox / credits</p>
-        <h1>Meet the WeekBox crew</h1>
-        <p>Meet the people building the launcher and helping it grow.</p>
-      </header>
       <section className="box credits-box">
         <div className="box__header">Contributors</div>
         <div className="box__content">

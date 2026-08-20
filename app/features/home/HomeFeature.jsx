@@ -61,8 +61,6 @@ export default function HomeFeature({ assets = [] }) {
     <div className="home-page">
       <section className="home-hero" aria-labelledby="home-title">
         <div className="home-hero__content">
-          <img src={asset('icon.webp')} alt="WeekBox icon" className="home-hero__icon" draggable="false" />
-          <p className="home-eyebrow">WeekBox</p>
           <h1 id="home-title" className="home-hero__title">{t('home.title')}</h1>
           <p className="home-hero__description">{t('home.description')}</p>
           <div className="home-actions">
