@@ -6,8 +6,8 @@ import { Footer } from './components/organisms/Footer';
 import I18nProvider from './I18nProvider';
 
 export const metadata = {
-  title: 'WeekBox | The Re-Imagined FNF Mod Launcher',
-  description: 'WeekBox is a desktop launcher for Friday Night Funkin\' mods. Browse GameBanana and Psych Online, install engines, and play your favorite mods in one place.',
+  title: 'WeekBox | One launcher for all your FNF mods',
+  description: 'Browse GameBanana and Psych Online, install engines, and launch your favorite Friday Night Funkin\' mods from one desktop app.',
   keywords: ['Friday Night Funkin', 'FNF', 'FNF Mods', 'WeekBox', 'Mod Launcher', 'GameBanana', 'Psych Engine', 'V-Slice', 'Friday Night Funkin Mods'],
   authors: [{ name: 'Crew-Awesome' }],
   creator: 'Crew-Awesome',
@@ -17,7 +17,7 @@ export const metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'WeekBox | The Re-Imagined FNF Mod Launcher',
+    title: 'WeekBox | One launcher for all your FNF mods',
     description: 'WeekBox brings the entire FNF mod ecosystem into a single app. Discover, install, and manage your favorite Friday Night Funkin\' mods with 1-click.',
     url: 'https://weekbox.site',
     siteName: 'WeekBox',
