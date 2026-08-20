@@ -5,7 +5,7 @@ import { getLatestRelease } from '../../../lib/weekbox-release';
 
 export const metadata = {
   title: 'Downloads | Weekbox',
-  description: 'A Re-Imagined Original FNF Mod Launcher',
+  description: 'Download WeekBox for Windows, macOS, or Linux.',
 };
 
 function formatDate(value) {
