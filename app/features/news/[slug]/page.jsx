@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { getNewsPost, getNewsPosts } from "../../../lib/news";
+import { getNewsPost, getNewsPosts } from "../../../../lib/news";
 
 export const revalidate = 300;
 
