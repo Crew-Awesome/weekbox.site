@@ -20,33 +20,24 @@ export async function generateMetadata({ params }) {
   return post ? { title: `${post.title} | Weekbox`, description: post.excerpt } : { title: "News | Weekbox" };
 }
 
-function Box({ title, children }) {
-  return <section className="box"><div className="box__header">{title}</div><div className="box__content">{children}</div></section>;
-}
-
 export default async function NewsArticlePage({ params }) {
   const { slug } = await params;
   const post = await getNewsPost(slug);
   if (!post) notFound();
 
-  return <div className="layout-container">
-    <header className="layout-header"><img src="/assets/images/banner.webp" alt="Weekbox Banner" className="layout-header__logo" draggable="false" /></header>
-    <main className="layout-content-wrapper news-layout">
-      <aside className="layout-sidebar news-article-aside">
-        <Box title="News"><Link href="/news" className="news-back">← All news</Link></Box>
-      </aside>
-      <div className="layout-main">
-        <Box title="Article">
-          <article className="news-article">
-            <img src={post.coverUrl} alt="" className="news-article__cover" />
-            <p className="news-article__meta"><time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>{post.updatedAt !== post.publishedAt && <span>Updated {formatDate(post.updatedAt)}</span>}</p>
-            <h1>{post.title}</h1>
-            <p className="news-article__excerpt">{post.excerpt}</p>
-            <div className="news-article__body"><Markdown remarkPlugins={[remarkGfm]} components={{ a: ({ href, children }) => <a href={href} target="_blank" rel="noreferrer">{children}</a> }}>{post.body}</Markdown></div>
-          </article>
-        </Box>
+  return <div className="site-page news-article-page">
+    <Link href="/features/news" className="news-back">← Back to news</Link>
+    <section className="box news-article-panel">
+      <div className="box__header">Article</div>
+      <div className="box__content">
+        <article className="news-article">
+          <img src={post.coverUrl} alt={post.title} className="news-article__cover" />
+          <p className="news-article__meta"><time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>{post.updatedAt !== post.publishedAt && <span>Updated {formatDate(post.updatedAt)}</span>}</p>
+          <h1>{post.title}</h1>
+          <p className="news-article__excerpt">{post.excerpt}</p>
+          <div className="news-article__body"><Markdown remarkPlugins={[remarkGfm]} components={{ a: ({ href, children }) => <a href={href} target="_blank" rel="noreferrer">{children}</a> }}>{post.body}</Markdown></div>
+        </article>
       </div>
-    </main>
-    <footer className="layout-footer"><p className="layout-footer__text">Copyright © 2024 Awesome Crew. All rights reserved.</p><p className="layout-footer__disclaimer">Weekbox is not related to or affiliated with Funkin&apos; Crew Inc. or the official Friday Night Funkin&apos; game.</p></footer>
+    </section>
   </div>;
 }

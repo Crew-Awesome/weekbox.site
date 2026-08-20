@@ -126,6 +126,59 @@ button:focus-visible {
     margin-bottom: 0;
 }
 
+.site-page {
+    width: min(1180px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: clamp(104px, 12vw, 156px) 0 80px;
+}
+
+.page-heading {
+    max-width: 760px;
+    margin: 0 auto 36px;
+}
+
+.page-heading h1 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: var(--wb-on-surface);
+    font-size: clamp(2.2rem, 5vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -0.045em;
+    line-height: 1;
+    text-wrap: balance;
+}
+
+.page-heading p:last-child {
+    max-width: 62ch;
+    margin: 16px 0 0;
+    color: var(--wb-on-surface-variant);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.skip-link {
+    position: fixed;
+    z-index: 2000;
+    top: 8px;
+    left: 8px;
+    padding: 10px 14px;
+    background: var(--wb-primary);
+    color: var(--wb-on-primary);
+    transform: translateY(-150%);
+}
+
+.skip-link:focus-visible {
+    transform: translateY(0);
+}
+
+@media (max-width: 560px) {
+    .site-page {
+        width: min(100% - 24px, 1180px);
+        padding-top: 92px;
+    }
+}
+
 @media (max-width: 720px) {
     .layout-container {
         width: 100%;

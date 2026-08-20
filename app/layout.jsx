@@ -51,8 +51,9 @@ export default function RootLayout({ children }) {
       <body>
         <I18nProvider>
           <Background>
+            <a className="skip-link" href="#main-content">Skip to content</a>
             <Navbar />
-            <main className="flex-1 w-full flex flex-col">
+            <main id="main-content" className="flex-1 w-full flex flex-col">
               {children}
             </main>
             <Footer />

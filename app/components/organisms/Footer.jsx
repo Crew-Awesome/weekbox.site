@@ -1,19 +1,8 @@
 'use client';
 
-import { useState } from 'react';
 import { FooterPhaserGame } from '../atoms/FooterPhaserGame';
 
 export function Footer() {
-  const [isClicked, setIsClicked] = useState(false);
-
-  const handleLogoClick = () => {
-    if (isClicked) return;
-    setIsClicked(true);
-    setTimeout(() => {
-      setIsClicked(false);
-    }, 800); // 800ms gives enough time for the smooth push and retract
-  };
-
   return (
     <footer className="w-full mt-auto relative">
       
@@ -34,30 +23,25 @@ export function Footer() {
         style={{ fontSize: '15vw', lineHeight: '0.8', letterSpacing: '-0.04em' }}
       >
         <span 
-          className={`font-black text-white transition-transform duration-500 ease-out ${isClicked ? '-translate-x-[4vw]' : 'translate-x-0'}`} 
+          className="font-black text-white"
           style={{ fontFamily: 'var(--wb-font-primary)' }}
         >
           WEEKB
         </span>
         <img 
           src="/assets/images/icon.webp" 
-          alt="O" 
-          onClick={handleLogoClick}
-          className={`inline-block cursor-pointer transform transition-all duration-500 ease-out 
-            ${isClicked 
-              ? 'scale-110' // Active state (glow is handled by inline style for exact color support)
-              : 'hover:rotate-12 hover:scale-105' // Normal state
-            }`} 
+          alt=""
+          className="inline-block"
           style={{ 
             height: '0.75em', 
             width: 'auto', 
             margin: '0 0.02em',
-            filter: isClicked ? 'drop-shadow(0 0 40px var(--wb-primary))' : 'drop-shadow(0 4px 6px rgba(0,0,0,0.5))'
+            filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.5))'
           }} 
           draggable="false"
         />
         <span 
-          className={`font-black text-white transition-transform duration-500 ease-out ${isClicked ? 'translate-x-[4vw]' : 'translate-x-0'}`} 
+          className="font-black text-white"
           style={{ fontFamily: 'var(--wb-font-primary)' }}
         >
           X

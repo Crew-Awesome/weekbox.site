@@ -1,10 +1,6 @@
 /** Downloads page */
 .downloads-main {
-    min-height: 440px;
-    padding: clamp(12px, 2vw, 20px);
-    background-color: #2b2b2b;
-    background-image: radial-gradient(#333333 1px, transparent 1px);
-    background-size: 20px 20px;
+    min-height: 0;
 }
 
 .downloads-main .box {
@@ -14,7 +10,7 @@
 
 .release-meta {
     margin: -2px 0 20px;
-    color: #a9a9a9;
+    color: var(--wb-on-surface-variant);
     font-size: 11px;
 }
 
@@ -41,9 +37,10 @@
     min-height: 38px;
     gap: 7px;
     padding: 7px 11px;
-    color: #b8b8b8;
-    background: #171717;
-    border: 1px solid #555;
+    color: var(--wb-on-surface-variant);
+    background: var(--wb-surface-container);
+    border: 1px solid var(--wb-outline-variant);
+    border-radius: 10px;
     cursor: pointer;
     font: inherit;
     font-size: 11px;
@@ -59,15 +56,15 @@
 }
 
 .platform-picker__button:hover {
-    color: #e9f8ff;
-    border-color: #0099ff;
+    color: var(--wb-on-surface);
+    border-color: var(--wb-primary);
 }
 
 .platform-picker__button[aria-pressed='true'] {
-    color: #e9f8ff;
-    background: #06375a;
-    border-color: #33ccff;
-    box-shadow: inset 0 0 0 1px rgba(51, 204, 255, 0.2);
+    color: var(--wb-on-primary);
+    background: var(--wb-primary);
+    border-color: var(--wb-primary);
+    box-shadow: none;
 }
 
 .platform-picker__button:active {
@@ -81,10 +78,11 @@
     justify-content: center;
     gap: 4px;
     padding: 12px;
-    color: #e9f8ff;
-    background: #06375a;
-    border: 1px solid #0099ff;
-    box-shadow: 2px 2px 0 #000;
+    color: var(--wb-on-surface);
+    background: var(--wb-surface-container);
+    border: 1px solid var(--wb-outline-variant);
+    border-radius: 12px;
+    box-shadow: 0 8px 18px rgb(0 0 0 / 0.16);
     text-decoration: none;
     transition-property: background-color, color, transform, box-shadow;
     transition-duration: 140ms;
@@ -92,9 +90,10 @@
 }
 
 .download-card:hover {
-    color: #fff;
-    background: #075384;
-    box-shadow: 3px 4px 0 #000;
+    color: var(--wb-on-surface);
+    background: var(--wb-surface-container-high);
+    border-color: var(--wb-primary);
+    box-shadow: 0 12px 24px rgb(0 0 0 / 0.22);
     text-decoration: none;
     transform: translateY(-1px);
 }
@@ -111,14 +110,14 @@
 }
 
 .download-card__meta {
-    color: #b9e7ff;
+    color: var(--wb-on-surface-variant);
     font-size: 10px;
 }
 
 .release-notes {
     margin-top: 28px;
     padding-top: 18px;
-    border-top: 1px dashed #555;
+    border-top: 1px solid var(--wb-outline-variant);
 }
 
 .release-notes h2 {
@@ -142,7 +141,9 @@
 .release-notes__body h4 {
     margin-top: 24px;
     margin-bottom: 8px;
-    color: #33ccff;
+    padding: 0;
+    border: 0;
+    color: var(--wb-primary);
     line-height: 1.25;
 }
 
@@ -221,4 +222,12 @@
 .release-empty {
     max-width: 62ch;
     padding: 16px 0 6px;
+}
+
+.downloads-main h2 {
+    margin-top: 0;
+    padding: 0;
+    border: 0;
+    color: var(--wb-on-surface);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
 }
