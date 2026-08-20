@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import DownloadSelector from './download-selector';
-import { getLatestRelease } from '../../lib/weekbox-release';
+import { getLatestRelease } from '../../../lib/weekbox-release';
 
 export const metadata = {
   title: 'Downloads | Weekbox',
@@ -24,9 +24,6 @@ export default async function DownloadsPage() {
   return (
     <div className="layout-container">
       <header className="layout-header"><img src="/assets/images/banner.webp" alt="Weekbox Banner" className="layout-header__logo" draggable="false" /></header>
-      <nav className="layout-nav" aria-label="Main navigation">
-      <Link href="/" className="layout-nav__link">Home</Link> | <Link href="/news" className="layout-nav__link">News</Link> | <Link href="/downloads" className="layout-nav__link" aria-current="page">Downloads</Link> | <Link href="/credits" className="layout-nav__link">Credits</Link> | <a href="https://github.com/Crew-Awesome/Weekbox" target="_blank" rel="noreferrer" className="layout-nav__link">GitHub</a> | <a href="https://discord.gg/xQTtYF2Cfn" target="_blank" rel="noreferrer" className="layout-nav__link">Discord</a>
-      </nav>
       <main id="main-content" className="downloads-main">
         <Box title="Downloads">
           {release ? <>

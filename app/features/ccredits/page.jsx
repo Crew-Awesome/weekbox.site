@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { crewGroups } from "../../lib/crew";
+import { crewGroups } from "../../../lib/crew";
 
 export const metadata = {
   title: "Credits | Weekbox",
@@ -58,42 +58,6 @@ export default function CreditsPage() {
           draggable="false"
         />
       </header>
-      <nav className="layout-nav" aria-label="Main navigation">
-        <Link href="/" className="layout-nav__link">
-          Home
-        </Link>{" "}
-        |{" "}
-        <Link href="/news" className="layout-nav__link">
-          News
-        </Link>{" "}
-        |{" "}
-        <Link href="/downloads" className="layout-nav__link">
-          Downloads
-        </Link>{" "}
-        |{" "}
-        <Link href="/credits" className="layout-nav__link" aria-current="page">
-          Credits
-        </Link>{" "}
-        |{" "}
-        <a
-          href="https://github.com/Crew-Awesome/Weekbox"
-          target="_blank"
-          rel="noreferrer"
-          className="layout-nav__link"
-        >
-          GitHub
-        </a>{" "}
-        |{" "}
-        <a
-          href="https://discord.gg/xQTtYF2Cfn"
-          target="_blank"
-          rel="noreferrer"
-          className="layout-nav__link"
-        >
-          Discord
-        </a>
-      </nav>
-
       <main className="layout-content-wrapper credits-layout">
         <div className="layout-main credits-main">
           <div className="credits-grid">

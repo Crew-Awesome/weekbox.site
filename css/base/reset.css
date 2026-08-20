@@ -2,8 +2,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #1a1a1a;
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAFElEQVQIW2NkYGD4z8DAwMgAI0AMDA4YAQlZMgAAAABJRU5ErkJggg=='); /** Retro pixel checkerboard background */
+    background-color: var(--wb-bg);
 }
 
 ::selection {

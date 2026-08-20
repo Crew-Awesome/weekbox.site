@@ -1,0 +1,27 @@
+{
+  "home": {
+    "title": "WeekBox: El Re-Imaginado Launcher de Mods FNF",
+    "description": "WeekBox es un lanzador de escritorio para mods de Friday Night Funkin'. Explora GameBanana y Psych Online, instala motores y juega tus mods favoritos en un solo lugar.",
+    "downloadFor": "Descargar para",
+    "downloadNow": "Descargar Ahora",
+    "viewGithub": "Ver en GitHub",
+    "whatItDoes": "Lo que hace WeekBox",
+    "whatItDoesDesc": "WeekBox trae todo el ecosistema de mods de FNF a una sola aplicación. Descubre nuevos mods en el inicio, instálalos con un clic, y deja que WeekBox maneje la asignación de motores, extracción de archivos y organización automáticamente.",
+    "finalCta": "Nada más que ver, a ",
+    "finalCtaWord": "JUGAR"
+  },
+  "features": {
+    "browseTitle": "Explorar Mods",
+    "browseDesc": "Descubre mods destacados y en tendencia de GameBanana y Psych Online directamente desde la aplicación.",
+    "manageTitle": "Gestionar Motores",
+    "manageDesc": "Instala, actualiza y cambia entre Psych Engine, V-Slice, Codename Engine, P-Slice, FPS Plus y Psych Online.",
+    "multiTitle": "Multiplataforma",
+    "multiDesc": "Versiones nativas para Windows (x64), macOS (Intel + Apple Silicon) y Linux (x64, ARM64, ARMHF).",
+    "smartTitle": "Descargas Inteligentes",
+    "smartDesc": "Descargas paralelas de múltiples partes con reintentos automáticos, validación y soporte para archivos ZIP, 7z y RAR.",
+    "oneclickTitle": "Instalación en 1-Clic",
+    "oneclickDesc": "Olvídate de descargas manuales. Solo presiona el botón de 1-Clic en cualquier página de mod de GameBanana, y WeekBox se abrirá, descargará y configurará el mod por ti.",
+    "localizedTitle": "Interfaz Localizada",
+    "localizedDesc": "Disponible en Inglés, Alemán, Francés, Italiano, Español, Portugués, Ruso, Indonesio, Turco y Chino."
+  }
+}
