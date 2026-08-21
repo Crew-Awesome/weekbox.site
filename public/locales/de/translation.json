@@ -1,27 +1,27 @@
 {
   "home": {
-    "title": "One launcher for all your FNF mods",
-    "description": "Browse GameBanana and Psych Online, install engines, and launch your favorite Friday Night Funkin' mods from one desktop app.",
-    "downloadFor": "Download for",
-    "downloadNow": "Download Now",
-    "viewGithub": "View on GitHub",
-    "whatItDoes": "What WeekBox does",
-    "whatItDoesDesc": "WeekBox brings the entire FNF mod ecosystem into a single app. Discover new mods on the Home feed, install them with one click, and let WeekBox handle engine assignment, archive extraction, and file organization automatically.",
-    "finalCta": "Nothing else to see, let's ",
-    "finalCtaWord": "PLAY"
+    "title": "Ein Launcher für alle deine FNF Mods",
+    "description": "Scrolle durch GameBanana und Psych Online, installiere Engines, und spiele deine liebsten Friday Night Funkin' Mods von einer Desktop-App aus.",
+    "downloadFor": "Download für",
+    "downloadNow": "Jetzt herunterladen",
+    "viewGithub": "Auf GitHub ansehen",
+    "whatItDoes": "Was macht WeekBox?",
+    "whatItDoesDesc": "WeekBox bringt das gesamte FNF-Ökosystem in eine einzige App. Entdecke neue Mods im Home-Feed, installiere sie mit einem Klick, und WeekBox übernimmt Engine-Zuweisungen, Archiv-Entpackung, und Dateiorganisation automatisch für dich.",
+    "finalCta": "Nichts mehr zu sehen, lass uns ",
+    "finalCtaWord": "SPIELEN"
   },
   "features": {
-    "browseTitle": "Browse Mods",
-    "browseDesc": "Discover featured and trending mods from GameBanana and Psych Online directly inside the app.",
-    "manageTitle": "Manage Engines",
-    "manageDesc": "Install, update, and switch between Psych Engine, V-Slice, Codename Engine, P-Slice, FPS Plus, and Psych Online.",
-    "multiTitle": "Multi-Platform",
-    "multiDesc": "Native builds for Windows (x64), macOS (Intel + Apple Silicon), and Linux (x64, ARM64, ARMHF).",
-    "smartTitle": "Smart Downloads",
-    "smartDesc": "Parallel multi-part downloads with automatic retry, validation, and support for ZIP, 7z, and RAR archives.",
-    "oneclickTitle": "1-Click GameBanana Installs",
-    "oneclickDesc": "Skip the hassle of manual downloads. Just press the 1-Click Install button on any GameBanana mod page, and WeekBox will automatically open, download, and set up the mod for you.",
-    "localizedTitle": "Localized UI",
-    "localizedDesc": "Available in English, German, French, Italian, Spanish, Portuguese, Russian, Indonesian, Turkish, and Chinese."
+    "browseTitle": "Entdecke Mods",
+    "browseDesc": "Entdecke vorgeschlagene und trendende Mods von GameBanana und Psych Online direkt in der App.",
+    "manageTitle": "Verwalte Engines",
+    "manageDesc": "Installiere, Update, und wechsele zwischen Psych Engine, V-Slice, Codename Engine, P-Slice, FPS Plus, und Psych Online.",
+    "multiTitle": "Multi-Plattform",
+    "multiDesc": "Native Builds für Windows (x64), macOS (Intel + Apple Silicon), und Linux (x64, ARM64, ARMHF).",
+    "smartTitle": "Smarte Downloads",
+    "smartDesc": "Parallele mehrteilige Downloads mit automatischer Neustartfunktion, Validierung, und Unterstützung für ZIP, 7z, und RAR-Archive.",
+    "oneclickTitle": "1-Klick-GameBanana-Installationen",
+    "oneclickDesc": "Spar die lästige manuelle Downloads. Drücke einfach den 1-Klick-Installierungsknopf auf jeder GameBanana Modseite, und WeekBox wird sich automatisch öffnen, downloaden, und die Mod für dich vorbereiten.",
+    "localizedTitle": "Lokalisierte UI",
+    "localizedDesc": "Verfügbar in Englisch, Deutsch, Französisch, Italienisch, Spanisch, Portugisisch, Russisch, Indonesisch, Türkisch, und Chinesisch."
   }
 }
