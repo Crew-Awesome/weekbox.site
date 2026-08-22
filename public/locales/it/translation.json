@@ -1,17 +1,17 @@
 {
   "home": {
-    "title": "One launcher for all your FNF mods",
-    "description": "Browse GameBanana and Psych Online, install engines, and launch your favorite Friday Night Funkin' mods from one desktop app.",
-    "downloadFor": "Download for",
-    "downloadNow": "Download Now",
-    "viewGithub": "View on GitHub",
-    "whatItDoes": "What WeekBox does",
-    "whatItDoesDesc": "WeekBox brings the entire FNF mod ecosystem into a single app. Discover new mods on the Home feed, install them with one click, and let WeekBox handle engine assignment, archive extraction, and file organization automatically.",
-    "finalCta": "Nothing else to see, let's ",
-    "finalCtaWord": "PLAY"
+    "title": "Un Launcher per tutte le tue mod di FNF",
+    "description": "Scopri su GameBanana e Psych Online, installa engine, and avvia le tue mod di Friday Night Funkin' preferite da un'applicazione desktop.",
+    "downloadFor": "Scarica per",
+    "downloadNow": "Scarica ora",
+    "viewGithub": "Vedi su GitHub",
+    "whatItDoes": "Cosa fa WeekBox",
+    "whatItDoesDesc": "WeekBox porta l'intero ecosistema di mod per FNF in una singola applicazione. Scopri nuove mod sulla feed principale, Scaricale con un click, e WeekBox si prendera cura di assegnarle all'engine adatta, estrazione degli archivi, ed automatica organizzazione dei file.",
+    "finalCta": "Nient'altro da vedere qui, ora di ",
+    "finalCtaWord": "GIOCARE"
   },
   "features": {
-    "browseTitle": "Browse Mods",
+    "browseTitle": "Scopri mod",
     "browseDesc": "Discover featured and trending mods from GameBanana and Psych Online directly inside the app.",
     "manageTitle": "Manage Engines",
     "manageDesc": "Install, update, and switch between Psych Engine, V-Slice, Codename Engine, P-Slice, FPS Plus, and Psych Online.",
