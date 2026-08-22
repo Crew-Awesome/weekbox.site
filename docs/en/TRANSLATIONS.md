@@ -53,7 +53,7 @@ Open your internet browser (Chrome, Firefox, Opera GX) and enter that link. You 
 
 ## 4. How to Translate?
 
-The language system is already preconfigured for several languages (English, Spanish, French, Chinese, Turkish, Italian, Portuguese, German, Indonesian). 
+The language system is already preconfigured for several languages (English, Spanish, French, Chinese, Turkish, Italian, Portuguese, German, Indonesian, Russian). 
 
 All the texts of the page live inside the folder:
 `public/locales/`

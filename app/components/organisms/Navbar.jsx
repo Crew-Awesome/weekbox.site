@@ -14,7 +14,8 @@ const LANGUAGES = [
   { code: 'it', name: 'Italiano', icon: 'it' },
   { code: 'pt', name: 'Português', icon: 'br' },
   { code: 'de', name: 'Deutsch', icon: 'de' },
-  { code: 'id', name: 'Indonesia', icon: 'id' }
+  { code: 'id', name: 'Indonesia', icon: 'id' },
+  { code: 'ru', name: 'Русский', icon: 'ru'}
 ];
 
 export function Navbar() {
