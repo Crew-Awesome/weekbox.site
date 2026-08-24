@@ -1,27 +1,27 @@
 {
   "home": {
-    "title": "One launcher for all your FNF mods",
-    "description": "Browse GameBanana and Psych Online, install engines, and launch your favorite Friday Night Funkin' mods from one desktop app.",
-    "downloadFor": "Download for",
-    "downloadNow": "Download Now",
-    "viewGithub": "View on GitHub",
-    "whatItDoes": "What WeekBox does",
-    "whatItDoesDesc": "WeekBox brings the entire FNF mod ecosystem into a single app. Discover new mods on the Home feed, install them with one click, and let WeekBox handle engine assignment, archive extraction, and file organization automatically.",
-    "finalCta": "Nothing else to see, let's ",
-    "finalCtaWord": "PLAY"
+    "title": "Satu launcher untuk semua mod FNF Anda",
+    "description": "Jelajahi GameBanana dan Psych Online, pasang engine, lalu jalankan mod Friday Night Funkin' favoritmu dari satu aplikasi desktop.",
+    "downloadFor": "Unduh untuk",
+    "downloadNow": "Unduh Sekarang",
+    "viewGithub": "Lihat di GitHub",
+    "whatItDoes": "Apa yang dilakukan WeekBox",
+    "whatItDoesDesc": "WeekBox menyatukan seluruh ekosistem mod FNF ke dalam satu aplikasi. Temukan mod baru di beranda, pasang dengan satu klik, dan biarkan WeekBox menangani penugasan engine, ekstraksi arsip, serta pengorganisasian file secara otomatis.",
+    "finalCta": "Nggak ada lagi yang perlu dilihat, ayo ",
+    "finalCtaWord": "MAIN"
   },
   "features": {
-    "browseTitle": "Browse Mods",
-    "browseDesc": "Discover featured and trending mods from GameBanana and Psych Online directly inside the app.",
-    "manageTitle": "Manage Engines",
-    "manageDesc": "Install, update, and switch between Psych Engine, V-Slice, Codename Engine, P-Slice, FPS Plus, and Psych Online.",
+    "browseTitle": "Jelajahi Mod",
+    "browseDesc": "Temukan mod-mod unggulan dan yang sedang tren dari GameBanana dan Psych Online langsung di dalam aplikasi.",
+    "manageTitle": "Kelola Engine",
+    "manageDesc": "Instal, perbarui, dan beralih di antara Psych Engine, V-Slice, Codename Engine, P-Slice, FPS Plus, dan Psych Online.",
     "multiTitle": "Multi-Platform",
-    "multiDesc": "Native builds for Windows (x64), macOS (Intel + Apple Silicon), and Linux (x64, ARM64, ARMHF).",
-    "smartTitle": "Smart Downloads",
-    "smartDesc": "Parallel multi-part downloads with automatic retry, validation, and support for ZIP, 7z, and RAR archives.",
-    "oneclickTitle": "1-Click GameBanana Installs",
-    "oneclickDesc": "Skip the hassle of manual downloads. Just press the 1-Click Install button on any GameBanana mod page, and WeekBox will automatically open, download, and set up the mod for you.",
-    "localizedTitle": "Localized UI",
-    "localizedDesc": "Available in English, German, French, Italian, Spanish, Portuguese, Russian, Indonesian, Turkish, and Chinese."
+    "multiDesc": "Build natif untuk Windows (x64), macOS (Intel + Apple Silicon), dan Linux (x64, ARM64, ARMHF).",
+    "smartTitle": "Unduhan Cerdas",
+    "smartDesc": "Pengunduhan paralel multi-bagian dengan fitur percobaan ulang otomatis, validasi, serta dukungan untuk arsip ZIP, 7z, dan RAR.",
+    "oneclickTitle": "1-Click Install GameBanana",
+    "oneclickDesc": "Tidak perlu repot mengunduh secara manual. Cukup tekan tombol 1-Click Install di halaman mod GameBanana mana pun, dan WeekBox akan secara otomatis membuka, mengunduh, serta menginstal mod tersebut untuk Anda.",
+    "localizedTitle": "Antarmuka Pengguna yang Dilokalkan",
+    "localizedDesc": "Tersedia dalam bahasa Inggris, Jerman, Prancis, Italia, Spanyol, Portugis, Rusia, Indonesia, Turki, dan Cina."
   }
 }
