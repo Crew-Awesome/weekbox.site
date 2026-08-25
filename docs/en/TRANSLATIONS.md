@@ -89,7 +89,7 @@ As you save your changes in the `translation.json` file (by pressing `Ctrl + S`)
 At the bottom of the main page there is a text that says "Nothing else to see, let's PLAY!". The word "PLAY" has the colors of the FNF arrows.
 In your `translation.json` file you will find:
 ```json
-"finalCta": "Nothing else to see, let's ",
+"finalCta": "Nothing else to see, let's",
 "finalCtaWord": "PLAY"
 ```
 Make sure to translate the `finalCtaWord` as a single word in uppercase (for example, "JUGAR" in Spanish, "JOUER" in French). The code will automatically color each letter of that word a different color regardless of how many letters it has. Magic!

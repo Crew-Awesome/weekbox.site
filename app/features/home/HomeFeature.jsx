@@ -106,7 +106,7 @@ export default function HomeFeature({ assets = [] }) {
       </section>
 
       <section className="home-cta" aria-labelledby="home-cta-title">
-        <h2 id="home-cta-title">{t('home.finalCta')}{t('home.finalCtaWord')}.</h2>
+        <h2 id="home-cta-title">{t('home.finalCta')} {t('home.finalCtaWord')}.</h2>
       </section>
     </div>
   );

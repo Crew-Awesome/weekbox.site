@@ -89,7 +89,7 @@ Conforme vayas guardando tus cambios en el archivo `translation.json` (presionan
 Al final de la página principal hay un texto que dice "Nothing else to see, let's PLAY!". La palabra "PLAY" tiene los colores de las flechas de FNF.
 En tu archivo `translation.json` encontrarás:
 ```json
-"finalCta": "Nothing else to see, let's ",
+"finalCta": "Nothing else to see, let's",
 "finalCtaWord": "PLAY"
 ```
 Asegúrate de traducir el `finalCtaWord` como una sola palabra en mayúsculas (por ejemplo, "JUGAR" en Español, "JOUER" en Francés). El código se encargará automáticamente de pintar cada letra de esa palabra de un color diferente sin importar cuántas letras tenga. ¡Mágico!
