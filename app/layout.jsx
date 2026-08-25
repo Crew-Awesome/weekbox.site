@@ -1,4 +1,3 @@
-import '../css/main.css';
 import './globals.css';
 import { Navbar } from './components/organisms/Navbar';
 import { Background } from './components/atoms/Background';
@@ -52,11 +51,16 @@ export default function RootLayout({ children }) {
         <I18nProvider>
           <Background>
             <a className="skip-link" href="#main-content">Skip to content</a>
-            <Navbar />
-            <main id="main-content" className="flex-1 w-full flex flex-col">
-              {children}
-            </main>
-            <Footer />
+            <div className="layout-container">
+              <header className="layout-header">
+                <img src="/assets/images/banner.webp" alt="Weekbox Banner" className="layout-header__logo" draggable="false" />
+              </header>
+              <Navbar />
+              <main id="main-content" className="site-main">
+                {children}
+              </main>
+              <Footer />
+            </div>
           </Background>
         </I18nProvider>
       </body>

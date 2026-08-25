@@ -30,12 +30,14 @@ export default async function NewsPage() {
   const posts = await getNewsPosts();
   const [featured, ...rest] = posts;
 
-  return <div className="site-page news-page">
-    <section className="box news-panel">
-      <div className="box__header">Latest news</div>
-      <div className="box__content">
-        {featured ? <div className="news-list"><NewsCard post={featured} featured />{rest.map((post) => <NewsCard key={post.slug} post={post} />)}</div> : <div className="news-empty" role="status"><h2>No news yet</h2><p>Check back soon for WeekBox updates.</p></div>}
-      </div>
-    </section>
+  return <div className="layout-content-wrapper news-layout">
+    <div className="layout-main">
+      <section className="box news-panel">
+        <div className="box__header">Latest news</div>
+        <div className="box__content">
+          {featured ? <div className="news-list"><NewsCard post={featured} featured />{rest.map((post) => <NewsCard key={post.slug} post={post} />)}</div> : <div className="news-empty" role="status"><h1>No news yet</h1><p>Check back soon for WeekBox updates.</p></div>}
+        </div>
+      </section>
+    </div>
   </div>;
 }

@@ -1,1 +1,12 @@
-@import "tailwindcss";
+@import '../css/base/reset.css';
+@import '../css/base/typography.css';
+@import '../css/layout/layout.css';
+@import '../css/components/box.css';
+@import '../css/components/button.css';
+@import '../css/components/team.css';
+@import '../css/components/engines.css';
+@import '../css/components/screenshots.css';
+@import '../css/components/downloads.css';
+@import '../css/components/news.css';
+@import '../css/components/credits.css';
+@import '../css/main.css';

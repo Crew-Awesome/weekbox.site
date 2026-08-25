@@ -17,8 +17,7 @@ export default async function DownloadsPage() {
   const assets = release?.assets ?? [];
 
   return (
-    <div className="site-page downloads-page">
-      <div className="downloads-main">
+    <div className="downloads-main">
         <section className="box">
           <div className="box__header">Latest release</div>
           <div className="box__content">
@@ -31,7 +30,6 @@ export default async function DownloadsPage() {
             </> : <div className="release-empty" role="status"><h2>Downloads are temporarily unavailable</h2><p>Unable to load the latest release. Open the GitHub releases page and try again shortly.</p><a href="https://github.com/Crew-Awesome/Weekbox/releases" target="_blank" rel="noreferrer" className="btn">View releases on GitHub</a></div>}
           </div>
         </section>
-      </div>
     </div>
   );
 }

@@ -34,24 +34,28 @@ function Person({ image, name, role, href }) {
 
 export default function CreditsPage() {
   return (
-    <div className="site-page credits-page">
-      <section className="box credits-box">
-        <div className="box__header">Contributors</div>
-        <div className="box__content">
-          <div className="credits-groups">
-            {crewGroups.map((group) => (
-              <section className="credits-group" aria-labelledby={`credits-${group.id}`} key={group.id}>
-                <h2 className="credits-group__title" id={`credits-${group.id}`}>
-                  {group.title}
-                </h2>
-                <div className={`credits-people${group.members.length === 1 ? " credits-people--single" : ""}`}>
-                  {group.members.map((member) => <Person key={member.name} {...member} />)}
-                </div>
-              </section>
-            ))}
-          </div>
+    <div className="layout-content-wrapper credits-layout">
+      <div className="layout-main credits-main">
+        <div className="credits-grid">
+          <section className="box credits-box">
+            <div className="box__header">Contributors</div>
+            <div className="box__content">
+              <div className="credits-groups">
+                {crewGroups.map((group) => (
+                  <section className="credits-group" aria-labelledby={`credits-${group.id}`} key={group.id}>
+                    <h2 className="credits-group__title" id={`credits-${group.id}`}>
+                      {group.title}
+                    </h2>
+                    <div className={`credits-people${group.members.length === 1 ? " credits-people--single" : ""}`}>
+                      {group.members.map((member) => <Person key={member.name} {...member} />)}
+                    </div>
+                  </section>
+                ))}
+              </div>
+            </div>
+          </section>
         </div>
-      </section>
+      </div>
     </div>
   );
 }

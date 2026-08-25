@@ -3,9 +3,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faApple, faGithub, faLinux, faWindows } from '@fortawesome/free-brands-svg-icons';
-import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import { crewMembers } from '../../../lib/crew';
 
 const asset = (path) => `/assets/images/${path}`;
 
@@ -26,9 +24,15 @@ function getAssetPriority(name) {
   return 4;
 }
 
+function Box({ title, children }) {
+  return <section className="box"><div className="box__header">{title}</div><div className="box__content">{children}</div></section>;
+}
+
 export default function HomeFeature({ assets = [] }) {
   const { t } = useTranslation();
   const [platform, setPlatform] = useState('windows');
+  const [crewPage, setCrewPage] = useState(0);
+  const [crewPaused, setCrewPaused] = useState(false);
 
   useEffect(() => {
     const value = navigator.userAgentData?.platform || navigator.platform || navigator.userAgent;
@@ -46,7 +50,6 @@ export default function HomeFeature({ assets = [] }) {
     }, {}), [assets]);
 
   const primaryAsset = groupedAssets[platform]?.[0];
-  const platformIcon = platform === 'macos' ? faApple : platform === 'linux' ? faLinux : faWindows;
   const platformName = platform === 'macos' ? 'macOS' : platform === 'linux' ? 'Linux' : 'Windows';
   const features = [
     ['browseTitle', 'browseDesc', 'home.webp'],
@@ -56,58 +59,76 @@ export default function HomeFeature({ assets = [] }) {
     ['oneclickTitle', 'oneclickDesc', 'mod.webp'],
     ['localizedTitle', 'localizedDesc', 'settings.webp'],
   ];
+  const crewPageSize = 3;
+  const crewPageCount = Math.ceil(crewMembers.length / crewPageSize);
+  const visibleCrewMembers = crewMembers.slice(crewPage * crewPageSize, (crewPage + 1) * crewPageSize);
+
+  useEffect(() => {
+    if (crewPaused) return undefined;
+    const timer = window.setInterval(() => setCrewPage((page) => (page + 1) % crewPageCount), 4000);
+    return () => window.clearInterval(timer);
+  }, [crewPageCount, crewPaused]);
 
   return (
-    <div className="home-page">
-      <section className="home-hero" aria-labelledby="home-title">
-        <div className="home-hero__content">
-          <h1 id="home-title" className="home-hero__title">{t('home.title')}</h1>
-          <p className="home-hero__description">{t('home.description')}</p>
-          <div className="home-actions">
+    <div className="layout-content-wrapper home-layout">
+      <aside className="layout-sidebar">
+        <Box title="About Weekbox">
+          <div className="box__content--center">
+            <img src={asset('icon.webp')} alt="Weekbox Icon" width="100" draggable="false" />
+            <p>{t('home.description')}</p>
             {primaryAsset ? (
-              <a href={primaryAsset.browser_download_url} className="home-action home-action--primary">
-                <FontAwesomeIcon icon={platformIcon} aria-hidden="true" />
-                {t('home.downloadFor')} {platformName}
-              </a>
+              <a href={primaryAsset.browser_download_url} className="btn">{t('home.downloadFor')} {platformName}</a>
             ) : (
-              <Link href="/features/downloads" className="home-action home-action--primary">
-                <FontAwesomeIcon icon={faDownload} aria-hidden="true" />
-                {t('home.downloadNow')}
-              </Link>
+              <Link href="/features/downloads" className="btn">{t('home.downloadNow')}</Link>
             )}
-            <a href="https://github.com/Crew-Awesome/Weekbox" target="_blank" rel="noreferrer" className="home-action home-action--secondary">
-              <FontAwesomeIcon icon={faGithub} aria-hidden="true" />
-              {t('home.viewGithub')}
-            </a>
           </div>
-        </div>
-        <figure className="home-hero__visual">
-          <img src={asset('screenshots/home.webp')} alt="WeekBox home screen" draggable="false" />
-        </figure>
-      </section>
+        </Box>
 
-      <section className="home-section" aria-labelledby="home-features-title">
-        <header className="home-section__heading">
-          <p className="home-eyebrow">Inside the launcher</p>
-          <h2 id="home-features-title">{t('home.whatItDoes')}</h2>
+        <Box title="Supported Engines">
+          <div className="engines-list">
+            {[['psych.png', 'Psych Engine'], ['psychonline.png', 'Psych Online'], ['vslice.png', 'V-Slice'], ['codename.png', 'Codename Engine'], ['pslice.png', 'P-Slice'], ['exe.png', 'Executable Mods'], ['fpsplus.png', 'FPS Plus']].map(([file, name]) => (
+              <img key={file} src={asset(`engines/${file}`)} alt={name} title={name} className="engines-list__img" draggable="false" />
+            ))}
+          </div>
+        </Box>
+
+        <Box title="WeekBox Crew">
+          <div className="team-carousel" onMouseEnter={() => setCrewPaused(true)} onMouseLeave={() => setCrewPaused(false)} onFocus={() => setCrewPaused(true)} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setCrewPaused(false); }} aria-live="polite">
+            <div className="team-carousel__members" key={crewPage}>
+              {visibleCrewMembers.map((member) => (
+                <a className="team-member team-member--featured" href={member.href || '/features/ccredits'} target={member.href ? '_blank' : undefined} rel={member.href ? 'noreferrer' : undefined} key={member.name}>
+                  <img src={asset(`awesome-crew/${member.image}`)} alt={member.name} className="team-member__avatar" draggable="false" />
+                  <span className="team-member__info"><span className="team-member__name">{member.name}</span><span className="team-member__role">{member.role}</span></span>
+                </a>
+              ))}
+            </div>
+            <div className="team-carousel__dots" role="tablist" aria-label="WeekBox Crew pages">
+              {Array.from({ length: crewPageCount }, (_, page) => <button type="button" className={`team-carousel__dot${page === crewPage ? ' is-active' : ''}`} aria-label={`Show crew page ${page + 1}`} aria-selected={page === crewPage} role="tab" onClick={() => setCrewPage(page)} key={page} />)}
+            </div>
+          </div>
+        </Box>
+      </aside>
+
+      <div className="layout-main">
+        <Box title="Welcome to Weekbox">
+          <h1>{t('home.title')}</h1>
+          <p>{t('home.description')}</p>
+          <h2>{t('home.whatItDoes')}</h2>
           <p>{t('home.whatItDoesDesc')}</p>
-        </header>
-        <div className="home-features">
-          {features.map(([titleKey, descriptionKey, image]) => (
-            <article className="home-feature" key={titleKey}>
-              <img src={asset(`screenshots/${image}`)} alt={`${t(`features.${titleKey}`)} screen`} className="home-feature__image" draggable="false" />
-              <div className="home-feature__body">
-                <h3>{t(`features.${titleKey}`)}</h3>
-                <p>{t(`features.${descriptionKey}`)}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
+          <ul>
+            {features.map(([titleKey, descriptionKey]) => <li key={titleKey}><strong>{t(`features.${titleKey}`)}:</strong> {t(`features.${descriptionKey}`)}</li>)}
+          </ul>
+        </Box>
 
-      <section className="home-cta" aria-labelledby="home-cta-title">
-        <h2 id="home-cta-title">{t('home.finalCta')} {t('home.finalCtaWord')}.</h2>
-      </section>
+        <Box title="Screenshots">
+          <div className="screenshots">
+            {features.map(([titleKey, , image]) => {
+              const title = t(`features.${titleKey}`);
+              return <div className="screenshot-item" key={image}><img src={asset(`screenshots/${image}`)} alt={`${title} screen`} className="screenshot-item__img" draggable="false" /><p className="screenshot-item__text">{title}</p></div>;
+            })}
+          </div>
+        </Box>
+      </div>
     </div>
   );
 }

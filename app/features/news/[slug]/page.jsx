@@ -25,19 +25,26 @@ export default async function NewsArticlePage({ params }) {
   const post = await getNewsPost(slug);
   if (!post) notFound();
 
-  return <div className="site-page news-article-page">
-    <Link href="/features/news" className="news-back">← Back to news</Link>
-    <section className="box news-article-panel">
-      <div className="box__header">Article</div>
-      <div className="box__content">
-        <article className="news-article">
-          <img src={post.coverUrl} alt={post.title} className="news-article__cover" />
-          <p className="news-article__meta"><time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>{post.updatedAt !== post.publishedAt && <span>Updated {formatDate(post.updatedAt)}</span>}</p>
-          <h1>{post.title}</h1>
-          <p className="news-article__excerpt">{post.excerpt}</p>
-          <div className="news-article__body"><Markdown remarkPlugins={[remarkGfm]} components={{ a: ({ href, children }) => <a href={href} target="_blank" rel="noreferrer">{children}</a> }}>{post.body}</Markdown></div>
-        </article>
-      </div>
-    </section>
+  return <div className="layout-content-wrapper news-layout">
+    <aside className="layout-sidebar news-article-aside">
+      <section className="box">
+        <div className="box__header">News</div>
+        <div className="box__content"><Link href="/features/news" className="news-back">← All news</Link></div>
+      </section>
+    </aside>
+    <div className="layout-main">
+      <section className="box news-article-panel">
+        <div className="box__header">Article</div>
+        <div className="box__content">
+          <article className="news-article">
+            <img src={post.coverUrl} alt={post.title} className="news-article__cover" />
+            <p className="news-article__meta"><time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>{post.updatedAt !== post.publishedAt && <span>Updated {formatDate(post.updatedAt)}</span>}</p>
+            <h1>{post.title}</h1>
+            <p className="news-article__excerpt">{post.excerpt}</p>
+            <div className="news-article__body"><Markdown remarkPlugins={[remarkGfm]} components={{ a: ({ href, children }) => <a href={href} target="_blank" rel="noreferrer">{children}</a> }}>{post.body}</Markdown></div>
+          </article>
+        </div>
+      </section>
+    </div>
   </div>;
 }
