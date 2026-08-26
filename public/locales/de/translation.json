@@ -1,10 +1,10 @@
 {
   "nav": {
-    "home": "Home",
+    "home": "Startseite",
     "downloads": "Downloads",
-    "news": "News",
-    "credits": "Credits",
-    "language": "Language"
+    "news": "Neuigkeiten",
+    "credits": "Danksagungen",
+    "language": "Sprache"
   },
   "home": {
     "title": "Ein Launcher für alle deine FNF Mods",
@@ -14,26 +14,26 @@
     "aboutWeekbox": "About WeekBox",
     "downloadFor": "Download für",
     "downloadNow": "Jetzt herunterladen",
-    "supportedEngines": "Supported Engines",
+    "supportedEngines": "Unterstützte Engines",
     "weekboxCrew": "WeekBox Crew",
-    "screenshots": "Screenshots",
+    "screenshots": "Vorschaubilder",
     "viewGithub": "Auf GitHub ansehen",
-    "welcomeToWeekbox": "Welcome to Weekbox",
+    "welcomeToWeekbox": "Willkommen bei WeekBox",
     "finalCta": "Nichts mehr zu sehen, lass uns",
     "finalCtaWord": "SPIELEN"
   },
   "downloads": {
-    "latestRelease": "Latest release",
-    "description": "Choose the installer or portable build for your platform.",
-    "released": "Released",
-    "noFilesYet": "No release files are available yet.",
-    "viewReleaseGithub": "View release on GitHub",
-    "releaseNotes": "Release notes",
-    "unavailableTitle": "Downloads are temporarily unavailable",
-    "unavailableDesc": "Unable to load the latest release. Open the GitHub releases page and try again shortly.",
-    "recommendTitle": "Recommended install",
-    "portableTitle": "Portable archive",
-    "viewReleasesGithub": "View releases on Github"
+    "latestRelease": "Neuster Release",
+    "description": "Wähle den Installer oder Portable-Build für dein Betriebssystem.",
+    "released": "Veröffentlicht",
+    "noFilesYet": "Aktuell sind noch keine Release-Dateien veröffentlicht.",
+    "viewReleaseGithub": "Release auf GitHub ansehen",
+    "releaseNotes": "Release Notizen",
+    "unavailableTitle": "Downloads sind temporär nicht verfügbar",
+    "unavailableDesc": "Der letzte Release konnte nicht heruntergeladen werden. Öffne die GitHub-Releases Seite und versuche es nach ein paar Sekunden erneut.",
+    "recommendTitle": "Empfohlene Installation",
+    "portableTitle": "Portable-Archiv",
+    "viewReleasesGithub": "Veröffentlichungen auf Github ansehen"
   },
   "features": {
     "browseTitle": "Entdecke Mods",
@@ -50,20 +50,20 @@
     "localizedDesc": "Verfügbar in Englisch, Deutsch, Französisch, Italienisch, Spanisch, Portugisisch, Russisch, Indonesisch, Türkisch, und Chinesisch."
   },
   "news": {
-    "latestNews": "Latest news",
-    "article": "Article",
-    "readArticle": "Read article",
-    "allNews": "All news",
-    "unavailableTitle": "No news yet",
-    "unavailableDesc": "Check back soon for WeekBox updates.",
+    "latestNews": "Aktuellste Neuigkeiten",
+    "article": "Artikel",
+    "readArticle": "Artikel lesen",
+    "allNews": "Alle Neuigkeiten",
+    "unavailableTitle": "Noch keine Neuigkeiten",
+    "unavailableDesc": "Schau bald wieder für WeekBox Updates vorbei.",
     "updated": "Updated"
   },
   "credits": {
-    "contributorsTitle": "Contributors",
-    "coreTeamTitle": "Core team",
-    "developmentTitle": "Development",
-    "creativeTitle": "Art & design",
-    "localizationTitle": "Localization",
-    "testingTitle": "Testing"
+    "contributorsTitle": "Mitwirkende",
+    "coreTeamTitle": "Kern-Team",
+    "developmentTitle": "Entwicklung",
+    "creativeTitle": "Kunst & Design",
+    "localizationTitle": "Übersetzung",
+    "testingTitle": "Tester"
   }
 }
