@@ -1,14 +1,39 @@
 {
+  "nav": {
+    "home": "Главная",
+    "downloads": "Скачать",
+    "news": "Новости",
+    "credits": "Авторы",
+    "language": "Язык"
+  },
   "home": {
     "title": "Один лаунчер для всех модов FNF",
-    "description": "Просматривайте моды на GameBanana and Psych Online, устанавливайте движки, и запускайте моды Friday Night Funkin' - всё в одном приложении.",
-    "downloadFor": "Скачать для",
-    "downloadNow": "Скачать сейчас",
-    "viewGithub": "Посмотреть на GitHub",
+    "description": "Просматривайте моды на GameBanana и Psych Online, устанавливайте движки, и запускайте моды Friday Night Funkin' - всё в одном приложении.",
     "whatItDoes": "Что делает WeekBox",
     "whatItDoesDesc": "WeekBox объединяет всю экосистему модов FNF в одном приложении. Находите новые моды в ленте Home, устанавливайте их одним щелчком мыши - а WeekBox сам подберёт движок, распакует архив и разложит файлы по папкам.",
+    "aboutWeekbox": "О WeekBox",
+    "downloadFor": "Скачать для",
+    "downloadNow": "Скачать сейчас",
+    "supportedEngines": "Поддерживаемые движки",
+    "weekboxCrew": "Команда WeekBox",
+    "screenshots": "Скриншоты",
+    "viewGithub": "Посмотреть на GitHub",
+    "welcomeToWeekbox": "Добро пожаловать в WeekBox",
     "finalCta": "Больше нечего смотреть, давайте",
     "finalCtaWord": "ИГРАТЬ"
+  },
+  "downloads": {
+    "latestRelease": "Последний релиз",
+    "description": "Выберите установщик или портативный билд для вашей платформы.",
+    "released": "Выпущен",
+    "noFilesYet": "Файлов релиза пока нет.",
+    "viewReleaseGithub": "Посмотреть релиз на GitHub",
+    "releaseNotes": "Примечания к выпуску",
+    "unavailableTitle": "Загрузки временно недоступны",
+    "unavailableDesc": "Не удалось загрузить последний релиз. Откройте страницу релизов на GitHub и попробуйте ещё раз чуть позже.",
+    "recommendTitle": "Рекоменуемый установщик",
+    "portableTitle": "Портативный архив",
+    "viewReleasesGithub": "Смотреть релизы на GitHub"
   },
   "features": {
     "browseTitle": "Просматривайте моды",
@@ -23,5 +48,22 @@
     "oneclickDesc": "Забудьте про ручную загрузку. Просто нажмите кнопку 1-Click Install на любой странице мода GameBanana - WeekBox автоматически настроит мод для вас.",
     "localizedTitle": "Локализированный интерфейс",
     "localizedDesc": "Доступно на английском, немецком, французском, итальянском, испанском, португальском, русском, индонезийском, турецком и китайском языках."
+  },
+  "news": {
+    "latestNews": "Последние новости",
+    "article": "Статья",
+    "readArticle": "Читать статью",
+    "allNews": "К новостям",
+    "unavailableTitle": "Пока нет новостей",
+    "unavailableDesc": "Загляните позже - за обновлениями WeekBox",
+    "updated": "Обновлено"
+  },
+  "credits": {
+    "contributorsTitle": "Участники",
+    "coreTeamTitle": "Основная команда",
+    "developmentTitle": "Разработка",
+    "creativeTitle": "Арт & дизайн",
+    "localizationTitle": "Локализация",
+    "testingTitle": "Тестирование"
   }
 }

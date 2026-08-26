@@ -1,14 +1,39 @@
 {
+  "nav": {
+    "home": "Home",
+    "downloads": "Downloads",
+    "news": "News",
+    "credits": "Credits",
+    "language": "Language"
+  },
   "home": {
     "title": "Un Launcher per tutte le tue mod di FNF",
     "description": "Scopri su GameBanana e Psych Online, installa engine, and avvia le tue mod di Friday Night Funkin' preferite da un'applicazione desktop.",
-    "downloadFor": "Scarica per",
-    "downloadNow": "Scarica ora",
-    "viewGithub": "Vedi su GitHub",
     "whatItDoes": "Cosa fa WeekBox",
     "whatItDoesDesc": "WeekBox porta l'intero ecosistema di mod per FNF in una singola applicazione. Scopri nuove mod sulla feed principale, Scaricale con un click, e WeekBox si prendera cura di assegnarle all'engine adatta, estrazione degli archivi, ed automatica organizzazione dei file.",
+    "aboutWeekbox": "About WeekBox",
+    "downloadFor": "Scarica per",
+    "downloadNow": "Scarica ora",
+    "supportedEngines": "Supported Engines",
+    "weekboxCrew": "WeekBox Crew",
+    "screenshots": "Screenshots",
+    "viewGithub": "Vedi su GitHub",
+    "welcomeToWeekbox": "Welcome to Weekbox",
     "finalCta": "Nient'altro da vedere qui, ora di",
     "finalCtaWord": "GIOCARE"
+  },
+  "downloads": {
+    "latestRelease": "Latest release",
+    "description": "Choose the installer or portable build for your platform.",
+    "released": "Released",
+    "noFilesYet": "No release files are available yet.",
+    "viewReleaseGithub": "View release on GitHub",
+    "releaseNotes": "Release notes",
+    "unavailableTitle": "Downloads are temporarily unavailable",
+    "unavailableDesc": "Unable to load the latest release. Open the GitHub releases page and try again shortly.",
+    "recommendTitle": "Recommended install",
+    "portableTitle": "Portable archive",
+    "viewReleasesGithub": "View releases on Github"
   },
   "features": {
     "browseTitle": "Scopri mod",
@@ -23,5 +48,22 @@
     "oneclickDesc": "Skip the hassle of manual downloads. Just press the 1-Click Install button on any GameBanana mod page, and WeekBox will automatically open, download, and set up the mod for you.",
     "localizedTitle": "Localized UI",
     "localizedDesc": "Available in English, German, French, Italian, Spanish, Portuguese, Russian, Indonesian, Turkish, and Chinese."
+  },
+  "news": {
+    "latestNews": "Latest news",
+    "article": "Article",
+    "readArticle": "Read article",
+    "allNews": "All news",
+    "unavailableTitle": "No news yet",
+    "unavailableDesc": "Check back soon for WeekBox updates.",
+    "updated": "Updated"
+  },
+  "credits": {
+    "contributorsTitle": "Contributors",
+    "coreTeamTitle": "Core team",
+    "developmentTitle": "Development",
+    "creativeTitle": "Art & design",
+    "localizationTitle": "Localization",
+    "testingTitle": "Testing"
   }
 }

@@ -1,14 +1,39 @@
 {
+  "nav": {
+    "home": "Home",
+    "downloads": "Downloads",
+    "news": "News",
+    "credits": "Credits",
+    "language": "Language"
+  },
   "home": {
     "title": "Un launcher pour tous vos mods FNF",
     "description": "Parcourez GameBanana et Psych Online, Installer des engines, et jouer à vos mods favoris en un endroit.",
-    "downloadFor": "Télécharger pour",
-    "downloadNow": "Télécharger Maintenant",
-    "viewGithub": "Voir sur GitHub",
     "whatItDoes": "Se que WeekBox fait",
     "whatItDoesDesc": "WeekBox rassemble l'ensemble de l'écosystème des mods FNF dans une seule application. Découvrez de nouveaux mods sur le fil d'actualité de la page d'accueil, installez les avec en un clic, et laissez WeekBox se charger de l'affectation des engines, extraction d'archives et organisation automatique des fichiers.",
+    "aboutWeekbox": "About WeekBox",
+    "downloadFor": "Télécharger pour",
+    "downloadNow": "Télécharger Maintenant",
+    "supportedEngines": "Supported Engines",
+    "weekboxCrew": "WeekBox Crew",
+    "screenshots": "Screenshots",
+    "viewGithub": "Voir sur GitHub",
+    "welcomeToWeekbox": "Welcome to Weekbox",
     "finalCta": "Plus rien à voir, allons",
     "finalCtaWord": "JOUER"
+  },
+  "downloads": {
+    "latestRelease": "Latest release",
+    "description": "Choose the installer or portable build for your platform.",
+    "released": "Released",
+    "noFilesYet": "No release files are available yet.",
+    "viewReleaseGithub": "View release on GitHub",
+    "releaseNotes": "Release notes",
+    "unavailableTitle": "Downloads are temporarily unavailable",
+    "unavailableDesc": "Unable to load the latest release. Open the GitHub releases page and try again shortly.",
+    "recommendTitle": "Recommended install",
+    "portableTitle": "Portable archive",
+    "viewReleasesGithub": "View releases on Github"
   },
   "features": {
     "browseTitle": "Parcourir les Mods",
@@ -23,5 +48,22 @@
     "oneclickDesc": "Évitez les ennuies liés aux téléchargements manuels. Juste appuyez sur le bouton d'installation en un clic sur n'importe quelle page de mod GameBanana, et WeekBox will ouvrira automatiquement, installera, et configurera le mod pour vous.",
     "localizedTitle": "UI Localisé",
     "localizedDesc": "Disponible en Anglais, Allemand, Français, Italien, Espagnol, Portugais, Russe, Indonesien, Turc et Chinois."
+  },
+  "news": {
+    "latestNews": "Latest news",
+    "article": "Article",
+    "readArticle": "Read article",
+    "allNews": "All news",
+    "unavailableTitle": "No news yet",
+    "unavailableDesc": "Check back soon for WeekBox updates.",
+    "updated": "Updated"
+  },
+  "credits": {
+    "contributorsTitle": "Contributors",
+    "coreTeamTitle": "Core team",
+    "developmentTitle": "Development",
+    "creativeTitle": "Art & design",
+    "localizationTitle": "Localization",
+    "testingTitle": "Testing"
   }
 }

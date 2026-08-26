@@ -25,7 +25,8 @@ function getAssetPriority(name) {
 }
 
 function Box({ title, children }) {
-  return <section className="box"><div className="box__header">{title}</div><div className="box__content">{children}</div></section>;
+  const { t } = useTranslation();
+  return <section className="box"><div className="box__header">{t(`home.${title}`)}</div><div className="box__content">{children}</div></section>;
 }
 
 export default function HomeFeature({ assets = [] }) {
@@ -72,7 +73,7 @@ export default function HomeFeature({ assets = [] }) {
   return (
     <div className="layout-content-wrapper home-layout">
       <aside className="layout-sidebar">
-        <Box title="About Weekbox">
+        <Box title="aboutWeekbox">
           <div className="box__content--center">
             <img src={asset('icon.webp')} alt="Weekbox Icon" width="100" draggable="false" />
             <p>{t('home.description')}</p>
@@ -84,7 +85,7 @@ export default function HomeFeature({ assets = [] }) {
           </div>
         </Box>
 
-        <Box title="Supported Engines">
+        <Box title="supportedEngines">
           <div className="engines-list">
             {[['psych.png', 'Psych Engine'], ['psychonline.png', 'Psych Online'], ['vslice.png', 'V-Slice'], ['codename.png', 'Codename Engine'], ['pslice.png', 'P-Slice'], ['exe.png', 'Executable Mods'], ['fpsplus.png', 'FPS Plus']].map(([file, name]) => (
               <img key={file} src={asset(`engines/${file}`)} alt={name} title={name} className="engines-list__img" draggable="false" />
@@ -92,7 +93,7 @@ export default function HomeFeature({ assets = [] }) {
           </div>
         </Box>
 
-        <Box title="WeekBox Crew">
+        <Box title="weekboxCrew">
           <div className="team-carousel" onMouseEnter={() => setCrewPaused(true)} onMouseLeave={() => setCrewPaused(false)} onFocus={() => setCrewPaused(true)} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setCrewPaused(false); }} aria-live="polite">
             <div className="team-carousel__members" key={crewPage}>
               {visibleCrewMembers.map((member) => (
@@ -110,7 +111,7 @@ export default function HomeFeature({ assets = [] }) {
       </aside>
 
       <div className="layout-main">
-        <Box title="Welcome to Weekbox">
+        <Box title="welcomeToWeekbox">
           <h1>{t('home.title')}</h1>
           <p>{t('home.description')}</p>
           <h2>{t('home.whatItDoes')}</h2>
@@ -120,7 +121,7 @@ export default function HomeFeature({ assets = [] }) {
           </ul>
         </Box>
 
-        <Box title="Screenshots">
+        <Box title="screenshots">
           <div className="screenshots">
             {features.map(([titleKey, , image]) => {
               const title = t(`features.${titleKey}`);

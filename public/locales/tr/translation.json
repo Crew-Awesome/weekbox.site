@@ -1,14 +1,39 @@
 {
+  "nav": {
+    "home": "Home",
+    "downloads": "Downloads",
+    "news": "News",
+    "credits": "Credits",
+    "language": "Language"
+  },
   "home": {
     "title": "Tüm FNF modlarınız için tek bir başlatıcı",
     "description": "GameBanana ve Psych Online'a göz atın, motorları yükleyin ve en sevdiğiniz Friday Night Funkin' modlarını tek bir masaüstü uygulamasından başlatın.",
-    "downloadFor": "Şunun için indir:",
-    "downloadNow": "Hemen İndir",
-    "viewGithub": "GitHub'da Görüntüle",
     "whatItDoes": "WeekBox ne yapar?",
     "whatItDoesDesc": "WeekBox, tüm FNF mod ekosistemini tek bir uygulamada bir araya getiriyor. Ana akışta yeni modları keşfedin, tek bir tıklamayla yükleyin ve motor atama, arşivden çıkarma ve dosya organizasyonu işlemlerini WeekBox'ın otomatik olarak halletmesine izin verin.",
+    "aboutWeekbox": "About WeekBox",
+    "downloadFor": "Şunun için indir:",
+    "downloadNow": "Hemen İndir",
+    "supportedEngines": "Supported Engines",
+    "weekboxCrew": "WeekBox Crew",
+    "screenshots": "Screenshots",
+    "viewGithub": "GitHub'da Görüntüle",
+    "welcomeToWeekbox": "Welcome to Weekbox",
     "finalCta": "Görecek başka bir şey kalmadı, hadi",
     "finalCtaWord": "OYNAYALIM"
+  },
+  "downloads": {
+    "latestRelease": "Latest release",
+    "description": "Choose the installer or portable build for your platform.",
+    "released": "Released",
+    "noFilesYet": "No release files are available yet.",
+    "viewReleaseGithub": "View release on GitHub",
+    "releaseNotes": "Release notes",
+    "unavailableTitle": "Downloads are temporarily unavailable",
+    "unavailableDesc": "Unable to load the latest release. Open the GitHub releases page and try again shortly.",
+    "recommendTitle": "Recommended install",
+    "portableTitle": "Portable archive",
+    "viewReleasesGithub": "View releases on Github"
   },
   "features": {
     "browseTitle": "Modlara Göz Atın",
@@ -23,5 +48,22 @@
     "oneclickDesc": "Manuel indirme zahmetini atlayın. Herhangi bir GameBanana mod sayfasındaki Tek Tıkla Yükle düğmesine basmanız yeterlidir; WeekBox otomatik olarak açılacak, modu indirecek ve sizin için kuracaktır.",
     "localizedTitle": "Yerelleştirilmiş Arayüz",
     "localizedDesc": "İngilizce, Almanca, Fransızca, İtalyanca, İspanyolca, Portekizce, Rusça, Endonezce, Türkçe ve Çince dillerinde mevcuttur."
+  },
+  "news": {
+    "latestNews": "Latest news",
+    "article": "Article",
+    "readArticle": "Read article",
+    "allNews": "All news",
+    "unavailableTitle": "No news yet",
+    "unavailableDesc": "Check back soon for WeekBox updates.",
+    "updated": "Updated"
+  },
+  "credits": {
+    "contributorsTitle": "Contributors",
+    "coreTeamTitle": "Core team",
+    "developmentTitle": "Development",
+    "creativeTitle": "Art & design",
+    "localizationTitle": "Localization",
+    "testingTitle": "Testing"
   }
 }

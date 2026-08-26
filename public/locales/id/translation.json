@@ -1,14 +1,39 @@
 {
+  "nav": {
+    "home": "Home",
+    "downloads": "Downloads",
+    "news": "News",
+    "credits": "Credits",
+    "language": "Language"
+  },
   "home": {
     "title": "Satu launcher untuk semua mod FNF Anda",
     "description": "Jelajahi GameBanana dan Psych Online, pasang engine, lalu jalankan mod Friday Night Funkin' favoritmu dari satu aplikasi desktop.",
-    "downloadFor": "Unduh untuk",
-    "downloadNow": "Unduh Sekarang",
-    "viewGithub": "Lihat di GitHub",
     "whatItDoes": "Apa yang dilakukan WeekBox",
     "whatItDoesDesc": "WeekBox menyatukan seluruh ekosistem mod FNF ke dalam satu aplikasi. Temukan mod baru di beranda, pasang dengan satu klik, dan biarkan WeekBox menangani penugasan engine, ekstraksi arsip, serta pengorganisasian file secara otomatis.",
+    "aboutWeekbox": "About WeekBox",
+    "downloadFor": "Unduh untuk",
+    "downloadNow": "Unduh Sekarang",
+    "supportedEngines": "Supported Engines",
+    "weekboxCrew": "WeekBox Crew",
+    "screenshots": "Screenshots",
+    "viewGithub": "Lihat di GitHub",
+    "welcomeToWeekbox": "Welcome to Weekbox",
     "finalCta": "Nggak ada lagi yang perlu dilihat, ayo",
     "finalCtaWord": "MAIN"
+  },
+  "downloads": {
+    "latestRelease": "Latest release",
+    "description": "Choose the installer or portable build for your platform.",
+    "released": "Released",
+    "noFilesYet": "No release files are available yet.",
+    "viewReleaseGithub": "View release on GitHub",
+    "releaseNotes": "Release notes",
+    "unavailableTitle": "Downloads are temporarily unavailable",
+    "unavailableDesc": "Unable to load the latest release. Open the GitHub releases page and try again shortly.",
+    "recommendTitle": "Recommended install",
+    "portableTitle": "Portable archive",
+    "viewReleasesGithub": "View releases on Github"
   },
   "features": {
     "browseTitle": "Jelajahi Mod",
@@ -23,5 +48,22 @@
     "oneclickDesc": "Tidak perlu repot mengunduh secara manual. Cukup tekan tombol 1-Click Install di halaman mod GameBanana mana pun, dan WeekBox akan secara otomatis membuka, mengunduh, serta menginstal mod tersebut untuk Anda.",
     "localizedTitle": "Antarmuka Pengguna yang Dilokalkan",
     "localizedDesc": "Tersedia dalam bahasa Inggris, Jerman, Prancis, Italia, Spanyol, Portugis, Rusia, Indonesia, Turki, dan Cina."
+  },
+  "news": {
+    "latestNews": "Latest news",
+    "article": "Article",
+    "readArticle": "Read article",
+    "allNews": "All news",
+    "unavailableTitle": "No news yet",
+    "unavailableDesc": "Check back soon for WeekBox updates.",
+    "updated": "Updated"
+  },
+  "credits": {
+    "contributorsTitle": "Contributors",
+    "coreTeamTitle": "Core team",
+    "developmentTitle": "Development",
+    "creativeTitle": "Art & design",
+    "localizationTitle": "Localization",
+    "testingTitle": "Testing"
   }
 }
