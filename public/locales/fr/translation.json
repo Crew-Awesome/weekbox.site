@@ -1,39 +1,39 @@
 {
   "nav": {
-    "home": "Home",
-    "downloads": "Downloads",
-    "news": "News",
-    "credits": "Credits",
-    "language": "Language"
+    "home": "Acceuil",
+    "downloads": "Téléchargements",
+    "news": "Nouvelles",
+    "credits": "Crédits",
+    "language": "Langue"
   },
   "home": {
     "title": "Un launcher pour tous vos mods FNF",
     "description": "Parcourez GameBanana et Psych Online, Installer des engines, et jouer à vos mods favoris en un endroit.",
     "whatItDoes": "Se que WeekBox fait",
     "whatItDoesDesc": "WeekBox rassemble l'ensemble de l'écosystème des mods FNF dans une seule application. Découvrez de nouveaux mods sur le fil d'actualité de la page d'accueil, installez les avec en un clic, et laissez WeekBox se charger de l'affectation des engines, extraction d'archives et organisation automatique des fichiers.",
-    "aboutWeekbox": "About WeekBox",
+    "aboutWeekbox": "À propos de WeekBox",
     "downloadFor": "Télécharger pour",
     "downloadNow": "Télécharger Maintenant",
-    "supportedEngines": "Supported Engines",
+    "supportedEngines": "Engines supportés",
     "weekboxCrew": "WeekBox Crew",
     "screenshots": "Screenshots",
     "viewGithub": "Voir sur GitHub",
-    "welcomeToWeekbox": "Welcome to Weekbox",
+    "welcomeToWeekbox": "Bienvenue sur Weekbox",
     "finalCta": "Plus rien à voir, allons",
     "finalCtaWord": "JOUER"
   },
   "downloads": {
-    "latestRelease": "Latest release",
-    "description": "Choose the installer or portable build for your platform.",
-    "released": "Released",
-    "noFilesYet": "No release files are available yet.",
-    "viewReleaseGithub": "View release on GitHub",
-    "releaseNotes": "Release notes",
-    "unavailableTitle": "Downloads are temporarily unavailable",
-    "unavailableDesc": "Unable to load the latest release. Open the GitHub releases page and try again shortly.",
-    "recommendTitle": "Recommended install",
-    "portableTitle": "Portable archive",
-    "viewReleasesGithub": "View releases on Github"
+    "latestRelease": "Dernière version",
+    "description": "Choisissez l'installeur ou la build portable pour votre plateforme.",
+    "released": "Publié le",
+    "noFilesYet": "Aucune nouvelle version n'est encore disponible.",
+    "viewReleaseGithub": "Consulter la version sur GitHub",
+    "releaseNotes": "Notes de mise à jour",
+    "unavailableTitle": "Les téléchargements sont temporairement indisponibles",
+    "unavailableDesc": "Impossible de charger la dernière version. Aller sur la page 'Release' de GitHub et réessayer prochainement.",
+    "recommendTitle": "Installation recommandée",
+    "portableTitle": "Archive portable",
+    "viewReleasesGithub": "Consulter la version sur GitHub"
   },
   "features": {
     "browseTitle": "Parcourir les Mods",
@@ -50,20 +50,20 @@
     "localizedDesc": "Disponible en Anglais, Allemand, Français, Italien, Espagnol, Portugais, Russe, Indonesien, Turc et Chinois."
   },
   "news": {
-    "latestNews": "Latest news",
+    "latestNews": "Dernière nouvelles",
     "article": "Article",
-    "readArticle": "Read article",
-    "allNews": "All news",
-    "unavailableTitle": "No news yet",
-    "unavailableDesc": "Check back soon for WeekBox updates.",
-    "updated": "Updated"
+    "readArticle": "Lire l'article",
+    "allNews": "Toutes les nouvelles",
+    "unavailableTitle": "Pas encore de nouvelles",
+    "unavailableDesc": "Revenez bientôt pour découvrir les dernières mises à jour de WeekBox.",
+    "updated": "Mis à jour"
   },
   "credits": {
-    "contributorsTitle": "Contributors",
-    "coreTeamTitle": "Core team",
-    "developmentTitle": "Development",
+    "contributorsTitle": "Contributeurs",
+    "coreTeamTitle": "Équipe principale",
+    "developmentTitle": "Développement",
     "creativeTitle": "Art & design",
-    "localizationTitle": "Localization",
-    "testingTitle": "Testing"
+    "localizationTitle": "Localisation",
+    "testingTitle": "Test"
   }
 }
