@@ -1,7 +1,7 @@
 {
   "nav": {
     "home": "Startseite",
-    "downloads": "Downloads",
+    "downloads": "Herunterladen",
     "news": "Neuigkeiten",
     "credits": "Danksagungen",
     "language": "Sprache"
@@ -23,17 +23,17 @@
     "finalCtaWord": "SPIELEN"
   },
   "downloads": {
-    "latestRelease": "Neuster Release",
-    "description": "Wähle den Installer oder Portable-Build für dein Betriebssystem.",
+    "latestRelease": "Neuste Version",
+    "description": "Wähle den Installer oder eine Portable-Version für dein Betriebssystem.",
     "released": "Veröffentlicht",
-    "noFilesYet": "Aktuell sind noch keine Release-Dateien veröffentlicht.",
-    "viewReleaseGithub": "Release auf GitHub ansehen",
-    "releaseNotes": "Release Notizen",
+    "noFilesYet": "Aktuell sind noch keine Versionsdateien veröffentlicht.",
+    "viewReleaseGithub": "Version auf GitHub ansehen",
+    "releaseNotes": "Versionsnotizen",
     "unavailableTitle": "Downloads sind temporär nicht verfügbar",
-    "unavailableDesc": "Der letzte Release konnte nicht heruntergeladen werden. Öffne die GitHub-Releases Seite und versuche es nach ein paar Sekunden erneut.",
+    "unavailableDesc": "Die letzte Version konnte nicht heruntergeladen werden. Öffne die GitHub-Releases Seite und versuche es nach ein paar Sekunden erneut.",
     "recommendTitle": "Empfohlene Installation",
     "portableTitle": "Portable-Archiv",
-    "viewReleasesGithub": "Veröffentlichungen auf Github ansehen"
+    "viewReleasesGithub": "Versionen auf Github ansehen"
   },
   "features": {
     "browseTitle": "Entdecke Mods",
@@ -43,9 +43,9 @@
     "multiTitle": "Multi-Plattform",
     "multiDesc": "Native Builds für Windows (x64), macOS (Intel + Apple Silicon), und Linux (x64, ARM64, ARMHF).",
     "smartTitle": "Smarte Downloads",
-    "smartDesc": "Parallele mehrteilige Downloads mit automatischer Neustartfunktion, Validierung, und Unterstützung für ZIP, 7z, und RAR-Archive.",
+    "smartDesc": "Parallele, mehrteilige Downloads mit automatischer Neustartfunktion, Validierung, und Unterstützung für ZIP, 7z, und RAR-Archive.",
     "oneclickTitle": "1-Klick-GameBanana-Installationen",
-    "oneclickDesc": "Spare dir lästige manuelle Downloads. Drücke einfach den 1-Klick-Installierungsknopf auf einer beliebigen GameBanana Modseite, und WeekBox wird sich automatisch öffnen, downloaden, und die Mod für dich vorbereiten.",
+    "oneclickDesc": "Spare dir lästige, manuelle Downloads. Drücke einfach den 1-Klick-Installierungsknopf auf einer beliebigen GameBanana Modseite, und WeekBox wird sich automatisch öffnen, downloaden, und die Mod für dich vorbereiten.",
     "localizedTitle": "Lokalisierte UI",
     "localizedDesc": "Verfügbar in Englisch, Deutsch, Französisch, Italienisch, Spanisch, Portugisisch, Russisch, Indonesisch, Türkisch, und Chinesisch."
   },
@@ -56,7 +56,7 @@
     "allNews": "Alle Neuigkeiten",
     "unavailableTitle": "Noch keine Neuigkeiten",
     "unavailableDesc": "Schau bald wieder für WeekBox Updates vorbei.",
-    "updated": "Updated"
+    "updated": "Aktualisiert"
   },
   "credits": {
     "contributorsTitle": "Mitwirkende",
