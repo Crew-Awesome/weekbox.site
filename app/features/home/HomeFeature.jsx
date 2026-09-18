@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
-import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import { crewMembers } from '../../../lib/crew';
 
@@ -80,7 +79,7 @@ export default function HomeFeature({ assets = [] }) {
             {primaryAsset ? (
               <a href={primaryAsset.browser_download_url} className="btn">{t('home.downloadFor')} {platformName}</a>
             ) : (
-              <Link href="/features/downloads" className="btn">{t('home.downloadNow')}</Link>
+              <a href="https://github.com/Crew-Awesome/Weekbox/releases" target="_blank" rel="noreferrer" className="btn">{t('home.downloadNow')}</a>
             )}
           </div>
         </Box>

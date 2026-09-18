@@ -11,14 +11,14 @@ export const metadata = {
   authors: [{ name: 'Crew-Awesome' }],
   creator: 'Crew-Awesome',
   publisher: 'Crew-Awesome',
-  metadataBase: new URL('https://weekbox.site'),
+  metadataBase: new URL('https://weekbox.immalloy.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: 'WeekBox | One launcher for all your FNF mods',
     description: 'WeekBox brings the entire FNF mod ecosystem into a single app. Discover, install, and manage your favorite Friday Night Funkin\' mods with 1-click.',
-    url: 'https://weekbox.site',
+    url: 'https://weekbox.immalloy.com',
     siteName: 'WeekBox',
     images: [
       {

@@ -2,7 +2,6 @@
   "nav": {
     "home": "Acceuil",
     "downloads": "Téléchargements",
-    "news": "Nouvelles",
     "credits": "Crédits",
     "language": "Langue"
   },
@@ -49,15 +48,6 @@
     "localizedTitle": "UI Localisé",
     "localizedDesc": "Disponible en Anglais, Allemand, Français, Italien, Espagnol, Portugais, Russe, Indonesien, Turc et Chinois."
   },
-  "news": {
-    "latestNews": "Dernière nouvelles",
-    "article": "Article",
-    "readArticle": "Lire l'article",
-    "allNews": "Toutes les nouvelles",
-    "unavailableTitle": "Pas encore de nouvelles",
-    "unavailableDesc": "Revenez bientôt pour découvrir les dernières mises à jour de WeekBox.",
-    "updated": "Mis à jour"
-  },
   "credits": {
     "contributorsTitle": "Contributeurs",
     "coreTeamTitle": "Équipe principale",
@@ -66,4 +56,4 @@
     "localizationTitle": "Localisation",
     "testingTitle": "Test"
   }
-}
+}\n

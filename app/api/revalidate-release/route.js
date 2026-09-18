@@ -20,6 +20,6 @@ export async function POST(request) {
 
   // A release webhook needs the next visit to receive fresh release data.
   revalidateTag(RELEASE_CACHE_TAG, { expire: 0 });
-  revalidatePath('/downloads');
+  revalidatePath('/');
   return NextResponse.json({ revalidated: true });
 }

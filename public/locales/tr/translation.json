@@ -2,7 +2,6 @@
   "nav": {
     "home": "Home",
     "downloads": "Downloads",
-    "news": "News",
     "credits": "Credits",
     "language": "Language"
   },
@@ -49,15 +48,6 @@
     "localizedTitle": "Yerelleştirilmiş Arayüz",
     "localizedDesc": "İngilizce, Almanca, Fransızca, İtalyanca, İspanyolca, Portekizce, Rusça, Endonezce, Türkçe ve Çince dillerinde mevcuttur."
   },
-  "news": {
-    "latestNews": "Latest news",
-    "article": "Article",
-    "readArticle": "Read article",
-    "allNews": "All news",
-    "unavailableTitle": "No news yet",
-    "unavailableDesc": "Check back soon for WeekBox updates.",
-    "updated": "Updated"
-  },
   "credits": {
     "contributorsTitle": "Contributors",
     "coreTeamTitle": "Core team",
@@ -66,4 +56,4 @@
     "localizationTitle": "Localization",
     "testingTitle": "Testing"
   }
-}
+}\n

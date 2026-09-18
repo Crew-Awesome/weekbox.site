@@ -2,7 +2,6 @@
   "nav": {
     "home": "Home",
     "downloads": "Downloads",
-    "news": "News",
     "credits": "Credits",
     "language": "Language"
   },
@@ -49,15 +48,6 @@
     "localizedTitle": "Antarmuka Pengguna yang Dilokalkan",
     "localizedDesc": "Tersedia dalam bahasa Inggris, Jerman, Prancis, Italia, Spanyol, Portugis, Rusia, Indonesia, Turki, dan Cina."
   },
-  "news": {
-    "latestNews": "Latest news",
-    "article": "Article",
-    "readArticle": "Read article",
-    "allNews": "All news",
-    "unavailableTitle": "No news yet",
-    "unavailableDesc": "Check back soon for WeekBox updates.",
-    "updated": "Updated"
-  },
   "credits": {
     "contributorsTitle": "Contributors",
     "coreTeamTitle": "Core team",
@@ -66,4 +56,4 @@
     "localizationTitle": "Localization",
     "testingTitle": "Testing"
   }
-}
+}\n
