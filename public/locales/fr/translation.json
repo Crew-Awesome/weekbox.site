@@ -1,59 +1,71 @@
 {
   "nav": {
-    "home": "Acceuil",
+    "home": "Accueil",
     "downloads": "Téléchargements",
     "credits": "Crédits",
-    "language": "Langue"
+    "language": "Langue",
+    "news": "Actualités"
   },
   "home": {
     "title": "Un launcher pour tous vos mods FNF",
-    "description": "Parcourez GameBanana et Psych Online, Installer des engines, et jouer à vos mods favoris en un endroit.",
-    "whatItDoes": "Se que WeekBox fait",
-    "whatItDoesDesc": "WeekBox rassemble l'ensemble de l'écosystème des mods FNF dans une seule application. Découvrez de nouveaux mods sur le fil d'actualité de la page d'accueil, installez les avec en un clic, et laissez WeekBox se charger de l'affectation des engines, extraction d'archives et organisation automatique des fichiers.",
+    "description": "Trouvez des mods, installez des engines et jouez.",
+    "whatItDoes": "Ce que fait WeekBox",
+    "whatItDoesDesc": "Trouvez un mod, choisissez un engine et laissez WeekBox s'occuper de l'installation.",
     "aboutWeekbox": "À propos de WeekBox",
-    "downloadFor": "Télécharger pour",
-    "downloadNow": "Télécharger Maintenant",
-    "supportedEngines": "Engines supportés",
-    "weekboxCrew": "WeekBox Crew",
-    "screenshots": "Screenshots",
+    "downloadFor": "Télécharger WeekBox pour",
+    "downloadNow": "Voir les versions",
+    "supportedEngines": "Engines compatibles",
+    "weekboxCrew": "Équipe WeekBox",
+    "screenshots": "Captures d'écran",
     "viewGithub": "Voir sur GitHub",
-    "welcomeToWeekbox": "Bienvenue sur Weekbox",
-    "finalCta": "Plus rien à voir, allons",
+    "welcomeToWeekbox": "Bienvenue sur WeekBox",
+    "finalCta": "Il n'y a plus rien à voir, allons",
     "finalCtaWord": "JOUER"
   },
   "downloads": {
     "latestRelease": "Dernière version",
-    "description": "Choisissez l'installeur ou la build portable pour votre plateforme.",
+    "description": "Choisissez l'installeur ou la version portable pour votre plateforme.",
     "released": "Publié le",
-    "noFilesYet": "Aucune nouvelle version n'est encore disponible.",
-    "viewReleaseGithub": "Consulter la version sur GitHub",
-    "releaseNotes": "Notes de mise à jour",
-    "unavailableTitle": "Les téléchargements sont temporairement indisponibles",
-    "unavailableDesc": "Impossible de charger la dernière version. Aller sur la page 'Release' de GitHub et réessayer prochainement.",
+    "noFilesYet": "Aucun fichier n'est encore disponible pour cette version.",
+    "viewReleaseGithub": "Voir la version sur GitHub",
+    "releaseNotes": "Notes de version",
+    "unavailableTitle": "Téléchargements temporairement indisponibles",
+    "unavailableDesc": "Impossible de charger la dernière version. Ouvrez les versions GitHub et réessayez plus tard.",
     "recommendTitle": "Installation recommandée",
     "portableTitle": "Archive portable",
-    "viewReleasesGithub": "Consulter la version sur GitHub"
+    "viewReleasesGithub": "Voir les versions sur GitHub"
+  },
+  "news": {
+    "latestNews": "Dernières actualités",
+    "readArticle": "Lire l'article",
+    "article": "Article",
+    "allNews": "Toutes les actualités",
+    "updated": "Mis à jour",
+    "unavailableTitle": "Actualités indisponibles",
+    "unavailableDesc": "Les actualités sont temporairement indisponibles. Revenez bientôt."
   },
   "features": {
-    "browseTitle": "Parcourir les Mods",
-    "browseDesc": "Découvrez les mods à la une et les plus populaires sur GameBanana et Psych Online directement à l'intérieur de l'application.",
+    "browseTitle": "Parcourir les mods",
+    "browseDesc": "Trouvez des mods de GameBanana et Psych Online.",
     "manageTitle": "Gérer les engines",
-    "manageDesc": "Installer, mettre à jour, et basculer entre Psych Engine, V-Slice, Codename Engine, P-Slice, FPS Plus, et Psych Online.",
-    "multiTitle": "Multi-Platforme",
-    "multiDesc": "Builds native pour Windows (x64), macOS (Intel + Apple Silicon), et Linux (x64, ARM64, ARMHF).",
+    "manageDesc": "Installez et changez d'engine parmi les engines compatibles.",
+    "multiTitle": "Windows, macOS et Linux",
+    "multiDesc": "Utilisez WeekBox sur Windows, macOS ou Linux.",
     "smartTitle": "Téléchargements intelligents",
-    "smartDesc": "Téléchargements parallèles en plusieurs parties avec réessai automatique, validation, et support pour ZIP, 7z, et les archives RAR.",
-    "oneclickTitle": "Installation de GameBanana en 1 clic",
-    "oneclickDesc": "Évitez les ennuies liés aux téléchargements manuels. Juste appuyez sur le bouton d'installation en un clic sur n'importe quelle page de mod GameBanana, et WeekBox will ouvrira automatiquement, installera, et configurera le mod pour vous.",
-    "localizedTitle": "UI Localisé",
-    "localizedDesc": "Disponible en Anglais, Allemand, Français, Italien, Espagnol, Portugais, Russe, Indonesien, Turc et Chinois."
+    "smartDesc": "Relancez les téléchargements échoués et gérez les formats d'archives courants.",
+    "oneclickTitle": "Installations en un clic",
+    "oneclickDesc": "Ouvrez un mod GameBanana et laissez WeekBox s'occuper de l'installation.",
+    "localizedTitle": "Votre langue",
+    "localizedDesc": "Disponible en dix langues."
   },
   "credits": {
     "contributorsTitle": "Contributeurs",
     "coreTeamTitle": "Équipe principale",
     "developmentTitle": "Développement",
-    "creativeTitle": "Art & design",
+    "creativeTitle": "Art et design",
+    "voiceActingTitle": "Doublage",
+    "communitySupportTitle": "Communauté et assistance",
     "localizationTitle": "Localisation",
-    "testingTitle": "Test"
+    "testingTitle": "Tests"
   }
-}\n
+}

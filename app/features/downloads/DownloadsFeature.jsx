@@ -1,6 +1,7 @@
 'use client';
 
 import { useTranslation } from 'react-i18next';
+import DownloadSelector from './DownloadSelector';
 
 function formatDate(value, language) {
   return new Intl.DateTimeFormat(language, { month: 'long', day: 'numeric', year: 'numeric' }).format(new Date(value));
@@ -18,8 +19,7 @@ export default function DownloadsFeature({ release }) {
           <h1>{release.name || release.tag_name}</h1>
           <p className="release-meta">{t('downloads.released')} {formatDate(release.published_at, i18n.language)} · <a href={release.html_url} target="_blank" rel="noreferrer">{t('downloads.viewReleaseGithub')}</a></p>
           <p className="download-intro">{t('downloads.description')}</p>
-          <div className="download-list">{assets.map((asset) => <a className="download-card" key={asset.id} href={asset.browser_download_url}><span className="download-card__name">{asset.name}</span><span className="download-card__meta">{asset.size ? `${(asset.size / 1024 / 1024).toFixed(1)} MB` : ''}</span></a>)}</div>
-          {!assets.length && <p>{t('downloads.noFilesYet')}</p>}
+          {assets.length ? <DownloadSelector assets={assets} /> : <p>{t('downloads.noFilesYet')}</p>}
         </> : <div className="release-empty" role="status"><h2>{t('downloads.unavailableTitle')}</h2><p>{t('downloads.unavailableDesc')}</p><a href="https://github.com/Crew-Awesome/Weekbox/releases" target="_blank" rel="noreferrer" className="btn">{t('downloads.viewReleasesGithub')}</a></div>}
       </div>
     </section>

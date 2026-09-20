@@ -12,6 +12,9 @@ function getPlatform(name) {
   if (fileName.includes('windows') || fileName.includes('win32') || fileName.includes('win64')) return 'windows';
   if (fileName.includes('macos') || fileName.includes('darwin') || fileName.includes('osx')) return 'macos';
   if (fileName.includes('linux')) return 'linux';
+  if (fileName.endsWith('.exe') || fileName.endsWith('.msi')) return 'windows';
+  if (fileName.endsWith('.dmg') || fileName.endsWith('.pkg') || fileName.endsWith('.app.zip')) return 'macos';
+  if (fileName.endsWith('.deb') || fileName.endsWith('.rpm') || fileName.endsWith('.appimage')) return 'linux';
   return 'other';
 }
 
@@ -24,6 +27,15 @@ function getAssetPriority(name) {
   return 4;
 }
 
+function detectPlatform() {
+  const value = [navigator.userAgentData?.platform, navigator.platform, navigator.userAgent].filter(Boolean).join(' ');
+  if (/android|iphone|ipad|ipod/i.test(value)) return 'other';
+  if (/windows|win32|win64/i.test(value)) return 'windows';
+  if (/macos|mac os|darwin|osx/i.test(value)) return 'macos';
+  if (/linux/i.test(value)) return 'linux';
+  return 'other';
+}
+
 function Box({ title, children }) {
   const { t } = useTranslation();
   return <section className="box"><div className="box__header">{t(`home.${title}`)}</div><div className="box__content">{children}</div></section>;
@@ -31,14 +43,12 @@ function Box({ title, children }) {
 
 export default function HomeFeature({ assets = [] }) {
   const { t } = useTranslation();
-  const [platform, setPlatform] = useState('windows');
+  const [platform, setPlatform] = useState(null);
   const [crewPage, setCrewPage] = useState(0);
   const [crewPaused, setCrewPaused] = useState(false);
 
   useEffect(() => {
-    const value = navigator.userAgentData?.platform || navigator.platform || navigator.userAgent;
-    if (/mac/i.test(value)) setPlatform('macos');
-    else if (/linux/i.test(value)) setPlatform('linux');
+    setPlatform(detectPlatform());
   }, []);
 
   const groupedAssets = useMemo(() => assets
@@ -50,7 +60,7 @@ export default function HomeFeature({ assets = [] }) {
       return groups;
     }, {}), [assets]);
 
-  const primaryAsset = groupedAssets[platform]?.[0];
+  const primaryAsset = platform && platform !== 'other' ? groupedAssets[platform]?.[0] : null;
   const platformName = platform === 'macos' ? 'macOS' : platform === 'linux' ? 'Linux' : 'Windows';
   const features = [
     ['browseTitle', 'browseDesc', 'home.webp'],
@@ -90,6 +100,7 @@ export default function HomeFeature({ assets = [] }) {
             {[['psych.png', 'Psych Engine'], ['psychonline.png', 'Psych Online'], ['vslice.png', 'V-Slice'], ['codename.png', 'Codename Engine'], ['pslice.png', 'P-Slice'], ['exe.png', 'Executable Mods'], ['fpsplus.png', 'FPS Plus']].map(([file, name]) => (
               <img key={file} src={asset(`engines/${file}`)} alt={name} title={name} className="engines-list__img" draggable="false" />
             ))}
+            <p className="engines-list__more">And More!</p>
           </div>
         </Box>
 

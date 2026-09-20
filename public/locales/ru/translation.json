@@ -1,18 +1,19 @@
 {
   "nav": {
     "home": "Главная",
-    "downloads": "Скачать",
+    "downloads": "Загрузки",
     "credits": "Авторы",
-    "language": "Язык"
+    "language": "Язык",
+    "news": "Новости"
   },
   "home": {
-    "title": "Один лаунчер для всех модов FNF",
-    "description": "Просматривайте моды на GameBanana и Psych Online, устанавливайте движки, и запускайте моды Friday Night Funkin' - всё в одном приложении.",
+    "title": "Один лаунчер для всех ваших модов FNF",
+    "description": "Находите моды, устанавливайте движки и играйте.",
     "whatItDoes": "Что делает WeekBox",
-    "whatItDoesDesc": "WeekBox объединяет всю экосистему модов FNF в одном приложении. Находите новые моды в ленте Home, устанавливайте их одним щелчком мыши - а WeekBox сам подберёт движок, распакует архив и разложит файлы по папкам.",
+    "whatItDoesDesc": "Найдите мод, выберите движок, а остальное оставьте WeekBox.",
     "aboutWeekbox": "О WeekBox",
-    "downloadFor": "Скачать для",
-    "downloadNow": "Скачать сейчас",
+    "downloadFor": "Скачать WeekBox для",
+    "downloadNow": "Посмотреть релизы",
     "supportedEngines": "Поддерживаемые движки",
     "weekboxCrew": "Команда WeekBox",
     "screenshots": "Скриншоты",
@@ -23,37 +24,48 @@
   },
   "downloads": {
     "latestRelease": "Последний релиз",
-    "description": "Выберите установщик или портативный билд для вашей платформы.",
-    "released": "Выпущен",
-    "noFilesYet": "Файлов релиза пока нет.",
+    "description": "Выберите установщик или портативную сборку для своей платформы.",
+    "released": "Выпущено",
+    "noFilesYet": "Файлов для этого релиза пока нет.",
     "viewReleaseGithub": "Посмотреть релиз на GitHub",
     "releaseNotes": "Примечания к выпуску",
     "unavailableTitle": "Загрузки временно недоступны",
-    "unavailableDesc": "Не удалось загрузить последний релиз. Откройте страницу релизов на GitHub и попробуйте ещё раз чуть позже.",
-    "recommendTitle": "Рекоменуемый установщик",
+    "unavailableDesc": "Не удалось загрузить последний релиз. Откройте релизы на GitHub и попробуйте снова позже.",
+    "recommendTitle": "Рекомендуемая установка",
     "portableTitle": "Портативный архив",
-    "viewReleasesGithub": "Смотреть релизы на GitHub"
+    "viewReleasesGithub": "Посмотреть релизы на GitHub"
+  },
+  "news": {
+    "latestNews": "Последние новости",
+    "readArticle": "Читать статью",
+    "article": "Статья",
+    "allNews": "Все новости",
+    "updated": "Обновлено",
+    "unavailableTitle": "Новости недоступны",
+    "unavailableDesc": "Новости временно недоступны. Загляните позже."
   },
   "features": {
-    "browseTitle": "Просматривайте моды",
-    "browseDesc": "Находите популярные и трендовые моды из GameBanana и Psych Online прямо в приложении.",
+    "browseTitle": "Поиск модов",
+    "browseDesc": "Находите моды из GameBanana и Psych Online.",
     "manageTitle": "Управление движками",
-    "manageDesc": "Установка, обновление и переключение между Psych Engine, V-Slice, Codename Engine, P-Slice, FPS Plus и Psych Online.",
-    "multiTitle": "Многоплатформенная поддержка",
-    "multiDesc": "Нативные сборки для Windows (x64), macOS (Intel + Apple Silicon) и Linux (x64, ARM64, ARMHF).",
-    "smartTitle": "Умная загрузка",
-    "smartDesc": "Файлы качаются несколькими частями параллельно, с автоматическим повтором при сбоях. Поддерживаются архивы ZIP, 7z и RAR.",
-    "oneclickTitle": "Установка GameBanana в один клик",
-    "oneclickDesc": "Забудьте про ручную загрузку. Просто нажмите кнопку 1-Click Install на любой странице мода GameBanana - WeekBox автоматически настроит мод для вас.",
-    "localizedTitle": "Локализированный интерфейс",
-    "localizedDesc": "Доступно на английском, немецком, французском, итальянском, испанском, португальском, русском, индонезийском, турецком и китайском языках."
+    "manageDesc": "Устанавливайте поддерживаемые движки и переключайтесь между ними.",
+    "multiTitle": "Windows, macOS и Linux",
+    "multiDesc": "Используйте WeekBox на Windows, macOS или Linux.",
+    "smartTitle": "Умные загрузки",
+    "smartDesc": "Повторяйте неудачные загрузки и работайте с распространёнными форматами архивов.",
+    "oneclickTitle": "Установка в один клик",
+    "oneclickDesc": "Откройте мод GameBanana и позвольте WeekBox заняться настройкой.",
+    "localizedTitle": "Ваш язык",
+    "localizedDesc": "Доступно на десяти языках."
   },
   "credits": {
     "contributorsTitle": "Участники",
     "coreTeamTitle": "Основная команда",
     "developmentTitle": "Разработка",
-    "creativeTitle": "Арт & дизайн",
+    "creativeTitle": "Арт и дизайн",
+    "voiceActingTitle": "Озвучка",
+    "communitySupportTitle": "Сообщество и поддержка",
     "localizationTitle": "Локализация",
     "testingTitle": "Тестирование"
   }
-}\n
+}

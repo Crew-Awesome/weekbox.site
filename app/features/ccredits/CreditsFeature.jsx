@@ -9,12 +9,12 @@ const asset = (path) => sitePath(`/assets/images/${path}`);
 function Person({ image, name, role, href }) {
   const content = (
     <>
-      <img
-        src={asset(`awesome-crew/${image}`)}
-        alt={name}
-        className="credits-person__avatar"
-        draggable="false"
-      />
+      {image ? <img
+          src={asset(`awesome-crew/${image}`)}
+          alt={name}
+          className="credits-person__avatar"
+          draggable="false"
+        /> : null}
       <span className="credits-person__info">
         <span className="credits-person__name">{name}</span>
         <span className="credits-person__role">{role}</span>

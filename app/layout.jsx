@@ -10,7 +10,7 @@ const siteBasePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 export const metadata = {
   title: 'WeekBox | One launcher for all your FNF mods',
-  description: 'Browse GameBanana and Psych Online, install engines, and launch your favorite Friday Night Funkin\' mods from one desktop app.',
+  description: "Browse mods, install engines, and play Friday Night Funkin'.",
   keywords: ['Friday Night Funkin', 'FNF', 'FNF Mods', 'WeekBox', 'Mod Launcher', 'GameBanana', 'Psych Engine', 'V-Slice', 'Friday Night Funkin Mods'],
   authors: [{ name: 'Crew-Awesome' }],
   creator: 'Crew-Awesome',
@@ -56,6 +56,7 @@ export default function RootLayout({ children }) {
           <Background>
             <a className="skip-link" href="#main-content">Skip to content</a>
             <div className="layout-container">
+              <a className="site-return-bar" href="https://immalloy.com/" aria-label="Go back to ImMalloy.com">Go back to ImMalloy.com</a>
               <header className="layout-header">
         <img src={sitePath('/assets/images/banner.webp')} alt="Weekbox Banner" className="layout-header__logo" draggable="false" />
               </header>
