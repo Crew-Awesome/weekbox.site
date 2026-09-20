@@ -1,12 +1,8 @@
 const nextConfig = {
+  output: 'export',
+  trailingSlash: true,
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
   images: { unoptimized: true },
-  async redirects() {
-    return [
-      { source: "/credits", destination: "/features/ccredits", permanent: true },
-    ];
-  },
 };
 
 export default nextConfig;
-
-import('@opennextjs/cloudflare').then(m => m.initOpenNextCloudflareForDev());

@@ -3,6 +3,10 @@ import { Navbar } from './components/organisms/Navbar';
 import { Background } from './components/atoms/Background';
 import { Footer } from './components/organisms/Footer';
 import I18nProvider from './I18nProvider';
+import { sitePath } from '../lib/site-path';
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://weekbox.immalloy.com';
+const siteBasePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 export const metadata = {
   title: 'WeekBox | One launcher for all your FNF mods',
@@ -11,18 +15,18 @@ export const metadata = {
   authors: [{ name: 'Crew-Awesome' }],
   creator: 'Crew-Awesome',
   publisher: 'Crew-Awesome',
-  metadataBase: new URL('https://weekbox.immalloy.com'),
+  metadataBase: new URL(siteUrl),
   alternates: {
-    canonical: '/',
+    canonical: `${siteBasePath || ''}/`,
   },
   openGraph: {
     title: 'WeekBox | One launcher for all your FNF mods',
     description: 'WeekBox brings the entire FNF mod ecosystem into a single app. Discover, install, and manage your favorite Friday Night Funkin\' mods with 1-click.',
-    url: 'https://weekbox.immalloy.com',
+    url: `${siteUrl}${siteBasePath}/`,
     siteName: 'WeekBox',
     images: [
       {
-        url: '/assets/images/banner.png', 
+        url: sitePath('/assets/images/banner.webp'),
         width: 1200,
         height: 630,
         alt: 'WeekBox - FNF Mod Launcher',
@@ -35,12 +39,12 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'WeekBox | FNF Mod Launcher',
     description: '1-Click install FNF mods from GameBanana directly to your desktop. The ultimate hub for Friday Night Funkin\'.',
-    images: ['/assets/images/banner.png'],
+    images: [sitePath('/assets/images/banner.webp')],
   },
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-    apple: '/favicon.ico',
+    icon: sitePath('/favicon.ico'),
+    shortcut: sitePath('/favicon.ico'),
+    apple: sitePath('/favicon.ico'),
   },
 };
 
@@ -53,7 +57,7 @@ export default function RootLayout({ children }) {
             <a className="skip-link" href="#main-content">Skip to content</a>
             <div className="layout-container">
               <header className="layout-header">
-                <img src="/assets/images/banner.webp" alt="Weekbox Banner" className="layout-header__logo" draggable="false" />
+        <img src={sitePath('/assets/images/banner.webp')} alt="Weekbox Banner" className="layout-header__logo" draggable="false" />
               </header>
               <Navbar />
               <main id="main-content" className="site-main">

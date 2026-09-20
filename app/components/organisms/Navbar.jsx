@@ -30,6 +30,8 @@ export function Navbar() {
   return (
     <nav className="layout-nav" aria-label="Main navigation">
       {link('/', 'home')} {' | '}
+      {link('/features/news', 'news')} {' | '}
+      {link('/features/downloads', 'downloads')} {' | '}
       {link('/features/ccredits', 'credits')} {' | '}
       <a href="https://github.com/Crew-Awesome/Weekbox" target="_blank" rel="noreferrer" className="layout-nav__link">GitHub</a> {' | '}
       <a href="https://discord.gg/xQTtYF2Cfn" target="_blank" rel="noreferrer" className="layout-nav__link">Discord</a> {' | '}

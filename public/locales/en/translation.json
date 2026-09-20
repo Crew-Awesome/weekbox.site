@@ -1,9 +1,10 @@
 {
-  "nav": {
+    "nav": {
     "home": "Home",
     "downloads": "Downloads",
     "credits": "Credits",
-    "language": "Language"
+    "language": "Language",
+    "news": "News"
   },
   "home": {
     "title": "One launcher for all your FNF mods",
@@ -33,6 +34,15 @@
     "recommendTitle": "Recommended install",
     "portableTitle": "Portable archive",
     "viewReleasesGithub": "View releases on Github"
+  },
+  "news": {
+    "latestNews": "Latest news",
+    "readArticle": "Read article",
+    "article": "Article",
+    "allNews": "All news",
+    "updated": "Updated",
+    "unavailableTitle": "News unavailable",
+    "unavailableDesc": "News is temporarily unavailable. Check back soon."
   },
   "features": {
     "browseTitle": "Browse Mods",

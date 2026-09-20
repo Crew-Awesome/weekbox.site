@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { sitePath } from '../../../lib/site-path';
 
 export function FooterPhaserGame() {
   const containerRef = useRef(null);
@@ -45,7 +46,7 @@ export function FooterPhaserGame() {
 
       function preload() {
         // Load FNF Sparrow Atlas XML
-        this.load.atlasXML('bf', '/assets/game/BOYFRIEND.png', '/assets/game/BOYFRIEND.xml');
+        this.load.atlasXML('bf', sitePath('/assets/game/BOYFRIEND.png'), sitePath('/assets/game/BOYFRIEND.xml'));
       }
 
       function create() {

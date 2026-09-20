@@ -2,8 +2,9 @@
 
 import { crewGroups } from "../../../lib/crew";
 import { useTranslation } from "react-i18next";
+import { sitePath } from "../../../lib/site-path";
 
-const asset = (path) => `/assets/images/${path}`;
+const asset = (path) => sitePath(`/assets/images/${path}`);
 
 function Person({ image, name, role, href }) {
   const content = (

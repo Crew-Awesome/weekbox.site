@@ -1,0 +1,28 @@
+.news-layout { align-items: start; grid-template-columns: minmax(0, 1fr); }
+.news-layout .layout-main, .news-layout .news-article-aside { grid-column: 1 / -1; }
+.news-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.news-card { min-width: 0; overflow: hidden; border: 1px solid #174d6e; background: #1a1a1a; }
+.news-card__link { display: flex; height: 100%; flex-direction: column; color: inherit; }
+.news-card__image { width: 100%; height: 130px; object-fit: cover; background: #000; }
+.news-card__body { display: flex; flex: 1; flex-direction: column; padding: 12px; }
+.news-card__meta, .news-article__meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 8px; color: #8da8ba; font-size: 10px; text-transform: uppercase; }
+.news-card__meta span { color: #3cf; }
+.news-card h2 { margin: 0 0 7px; }
+.news-card p { margin: 0; color: #c7d2d9; line-height: 1.5; }
+.news-card__read { margin-top: auto; padding-top: 14px; color: #3cf; font-size: 12px; font-weight: bold; text-transform: uppercase; }
+.news-card--featured { grid-column: 1 / -1; }
+.news-card--featured .news-card__link { display: grid; grid-template-columns: minmax(220px, 42%) minmax(0, 1fr); }
+.news-card--featured .news-card__image { height: 100%; min-height: 220px; }
+.news-article { max-width: 760px; margin: 0 auto; }
+.news-article__cover { display: block; width: 100%; max-height: 300px; object-fit: cover; margin-bottom: 14px; }
+.news-article h1 { margin-bottom: 10px; }
+.news-article__excerpt { margin-bottom: 22px; color: #b8c9d3; font-size: 16px; line-height: 1.55; }
+.news-article__body { color: #d8e0e5; font-size: 15px; line-height: 1.7; }
+.news-article__body img { max-width: 100%; height: auto; }
+.news-article__body p, .news-article__body ul, .news-article__body ol { margin: 0 0 15px; }
+.news-back { display: inline-block; color: #3cf; font-weight: bold; }
+@media (max-width: 720px) {
+    .news-list { grid-template-columns: 1fr; }
+    .news-card--featured .news-card__link { display: flex; }
+    .news-card--featured .news-card__image { height: 170px; min-height: 0; }
+}

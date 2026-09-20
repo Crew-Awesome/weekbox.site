@@ -3,8 +3,9 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { crewMembers } from '../../../lib/crew';
+import { sitePath } from '../../../lib/site-path';
 
-const asset = (path) => `/assets/images/${path}`;
+const asset = (path) => sitePath(`/assets/images/${path}`);
 
 function getPlatform(name) {
   const fileName = name.toLowerCase();
