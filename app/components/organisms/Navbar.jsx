@@ -34,7 +34,7 @@ export function Navbar() {
       {link('/features/downloads', 'downloads')} {' | '}
       {link('/features/ccredits', 'credits')} {' | '}
       <a href="https://github.com/Crew-Awesome/Weekbox" target="_blank" rel="noreferrer" className="layout-nav__link">GitHub</a> {' | '}
-      <a href="https://discord.gg/xQTtYF2Cfn" target="_blank" rel="noreferrer" className="layout-nav__link">Discord</a> {' | '}
+      <a href="https://discord.gg/BEgEYjba5f" target="_blank" rel="noreferrer" className="layout-nav__link">Discord</a> {' | '}
       <label className="lang-switcher">
         <span className="sr-only">{t('nav.language')}</span>
         <select value={language} onChange={(event) => i18n.changeLanguage(event.target.value)} aria-label="Language">
